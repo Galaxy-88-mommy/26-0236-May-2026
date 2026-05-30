@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Shopping Website</title>
+</head>
+<body>
+
+    <h1>Welcome to NanaShop</h1>
+
+    <h2>Product Categories</h2>
+    <ul>
+        <li>Tops</li>
+        <li>Bottoms</li>
+        <li>Dresses</li>
+        <li>Shoes</li>
+        <li>Bags</li>
+    </ul>
+
+    <h2>How to Shop</h2>
+    <ol>
+        <li>Browse products</li>
+        <li>Select an item</li>
+        <li>Add item to cart</li>
+        <li>Proceed to checkout</li>
+        <li>Receive your order</li>
+    </ol>
+
+    <h2>Featured Products</h2>
+
+    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400"
+         alt="T-Shirt"
+         width="300">
+
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"
+         alt="Shoes"
+         width="300">
+
+</body>
+</html>
