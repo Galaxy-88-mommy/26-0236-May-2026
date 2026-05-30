@@ -1,4 +1,55 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NanaShop Online Shopping Website</title>
+</head>
+<body>
+
+    <h1>NanaShop Online Shopping Website</h1>
+    <p>Welcome to NanaShop, your online destination for affordable pre-loved fashion and accessories.</p>
+
+    <hr>
+
+    <h2>Product Categories</h2>
+    <ul>
+        <li>Tops</li>
+        <li>Bottoms</li>
+        <li>Dresses</li>
+        <li>Shoes</li>
+        <li>Bags</li>
+    </ul>
+
+    <hr>
+
+    <h2>How to Shop on NanaShop</h2>
+    <ol>
+        <li>Browse available products.</li>
+        <li>Select your preferred item.</li>
+        <li>Add the item to your cart.</li>
+        <li>Proceed to checkout.</li>
+        <li>Complete payment and receive your order.</li>
+    </ol>
+
+    <hr>
+
+    <h2>Featured Products</h2>
+
+    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400"
+         alt="Fashion Clothing"
+         width="300">
+
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"
+         alt="Fashion Shoes"
+         width="300">
+
+    <hr>
+
+    <p>&copy; 2026 NanaShop Online Shopping Website</p>
+
+</body>
+</html><!DOCTYPE html>
 <html>
 <head>
     <title>Online Shopping Website</title>
