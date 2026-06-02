@@ -4,61 +4,208 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nana Shop</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    text-align:center;
+    background:#f8f8f8;
+}
+
+header{
+    background:#222;
+    color:white;
+    padding:20px;
+}
+
+nav{
+    background:#444;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+section{
+    padding:20px;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+    border-radius:10px;
+}
+
+table{
+    margin:auto;
+    border-collapse:collapse;
+    width:80%;
+}
+
+th,td{
+    border:1px solid black;
+    padding:10px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    padding:15px;
+}
+
+@media(max-width:768px){
+    nav a{
+        display:block;
+        margin:10px;
+    }
+
+    table{
+        width:100%;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>NANA SHOP</h1>
-    <p>Your One-Stop Online Shopping Destination</p>
+<h1>NANA SHOP</h1>
+<p>Your One-Stop Online Shopping Store</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="products.html">Products</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<section>
-    <h2>Welcome to Nana Shop</h2>
-    <p>
-        Nana Shop offers quality fashion and electronics at affordable prices.
-        Shop sneakers, handbags, smart watches, headphones and more.
-    </p>
+<section id="home">
+<h2>Welcome to Nana Shop</h2>
 
-    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800"
-         alt="Shopping Store" width="600">
+<p>
+We offer quality products including shoes, handbags,
+smart watches, headphones and clothing at affordable prices.
+</p>
 
-    <p>Modern shopping made easy.</p>
+<h3>Shopping Process</h3>
+<ol>
+<li>Browse Products</li>
+<li>Select Item</li>
+<li>Add to Cart</li>
+<li>Checkout</li>
+<li>Receive Delivery</li>
+</ol>
+
+<h3>Our Categories</h3>
+<ul style="list-style-position:inside;">
+<li>Sneakers</li>
+<li>Handbags</li>
+<li>Smart Watches</li>
+<li>Headphones</li>
+<li>T-Shirts</li>
+</ul>
+</section>
+
+<hr>
+
+<section id="gallery">
+<h2>Featured Products</h2>
+
+<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Sneakers" width="250">
+</a>
+<p>Sneakers - KES 2500</p>
+
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" alt="Handbag" width="250">
+<p>Handbag - KES 1800</p>
+</section>
+
+<hr>
+
+<section id="products">
+<h2>Product Table</h2>
+
+<table>
+<caption><strong>Nana Shop Products</strong></caption>
+
+<tr>
+<th>Product</th>
+<th>Category</th>
+<th>Price</th>
+</tr>
+
+<tr>
+<td>Sneakers</td>
+<td>Shoes</td>
+<td>KES 2500</td>
+</tr>
+
+<tr>
+<td>Handbag</td>
+<td>Fashion</td>
+<td>KES 1800</td>
+</tr>
+
+<tr>
+<td>Smart Watch</td>
+<td>Electronics</td>
+<td>KES 4500</td>
+</tr>
+
+<tr>
+<td>Headphones</td>
+<td>Electronics</td>
+<td>KES 3000</td>
+</tr>
+
+<tr>
+<td>T-Shirt</td>
+<td>Clothing</td>
+<td>KES 800</td>
+</tr>
+
+</table>
 </section>
 
 <hr>
 
 <section>
-    <h2>How to Shop</h2>
-    <ol>
-        <li>Browse Products</li>
-        <li>Select Your Item</li>
-        <li>Place Order</li>
-        <li>Receive Delivery</li>
-    </ol>
+<h2>Promotional Video</h2>
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/9No-FiEInLA"
+title="YouTube Video"
+allowfullscreen>
+</iframe>
 </section>
 
-<section>
-    <h2>Why Choose Us?</h2>
-    <ul>
-        <li>Affordable Prices</li>
-        <li>Quality Products</li>
-        <li>Fast Delivery</li>
-        <li>Customer Support</li>
-    </ul>
+<hr>
+
+<section id="contact">
+<h2>Contact Us</h2>
+
+<p>Email: nanashop@gmail.com</p>
+<p>Phone: +254 700 123 456</p>
+
+<h3>Our Location</h3>
+
+<iframe
+src="https://maps.google.com/maps?q=Nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="600"
+height="350"
+style="border:0;">
+</iframe>
 </section>
 
 <footer>
-    <p>&copy; 2026 Nana Shop</p>
+<p>&copy; 2026 Nana Shop. All Rights Reserved.</p>
 </footer>
 
 </body>
