@@ -2,87 +2,108 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Web Technologies Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nana Shop</title>
 
 <style>
-body {
+body{
     font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f4f4;
+    margin:0;
+    padding:0;
+    text-align:center;
+    background:#f8f8f8;
 }
 
-header {
-    background: #1e3a8a;
-    color: white;
-    text-align: center;
-    padding: 20px;
+/* HEADER */
+header{
+    background:#222;
+    color:white;
+    padding:20px;
 }
 
-nav {
-    background: #0f172a;
-    text-align: center;
-    padding: 10px;
+/* NAV */
+nav{
+    background:#444;
+    padding:15px;
     position: sticky;
     top: 0;
 }
 
-nav a {
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: bold;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
 }
 
-nav a:hover {
+nav a:hover{
     color: yellow;
 }
 
-section {
-    padding: 20px;
+/* SECTIONS */
+section{
+    padding:20px;
 }
 
-.container {
-    padding: 20px;
+/* GALLERY */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
 }
 
-img {
-    width: 250px;
-    border-radius: 10px;
-    margin: 10px;
+.gallery div{
+    background:white;
+    padding:10px;
+    border-radius:10px;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
+/* IMAGES */
+img{
+    width:250px;
+    border-radius:10px;
+    margin:10px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+/* TABLE */
+table{
+    margin:auto;
+    border-collapse:collapse;
+    width:85%;
+    background:white;
 }
 
-table, th, td {
-    border: 1px solid black;
+th,td{
+    border:1px solid black;
+    padding:10px;
 }
 
-th, td {
-    padding: 10px;
-    text-align: center;
+/* FORM */
+input, textarea{
+    width:80%;
+    padding:10px;
+    margin:5px;
 }
 
-footer {
-    background: #1e3a8a;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+/* FOOTER */
+footer{
+    background:#222;
+    color:white;
+    padding:15px;
+    margin-top:20px;
 }
 
-button {
-    padding: 10px;
-    background: green;
-    color: white;
-    border: none;
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav a{
+        display:block;
+        margin:10px;
+    }
+
+    table{
+        width:100%;
+    }
 }
 </style>
 </head>
@@ -90,129 +111,182 @@ button {
 <body>
 
 <header>
-    <h1>MY WEB TECHNOLOGIES PROJECT</h1>
-    <p>HTML + CSS Full Assignment (40/40 Ready)</p>
+<h1>NANA SHOP</h1>
+<p>Your Trusted Online Shopping Store</p>
 </header>
 
+<!-- NAVIGATION -->
 <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#table">Table</a>
-    <a href="#media">Media</a>
-    <a href="#contact">Contact</a>
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#products">Products</a>
+<a href="#gallery">Gallery</a>
+<a href="#table">Table</a>
+<a href="#media">Media</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <!-- HOME -->
 <section id="home">
-    <h2>Welcome</h2>
-    <p>This is my complete Web Technologies project showing HTML, CSS, images, tables, video, audio, iframe, and forms.</p>
+<h2>Welcome to Nana Shop</h2>
 
-    <img src="https://via.placeholder.com/250" alt="home image">
+<p>
+We sell affordable and quality products including sneakers, handbags,
+smart watches, headphones, and clothing.
+</p>
 
-    <!-- clickable image -->
-    <a href="https://github.com">
-        <img src="https://via.placeholder.com/250" alt="clickable image">
-    </a>
+<h3>Shopping Steps</h3>
+<ol>
+<li>Browse products</li>
+<li>Select item</li>
+<li>Add to cart</li>
+<li>Checkout</li>
+<li>Receive delivery</li>
+</ol>
 </section>
+
+<hr>
 
 <!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <p>This project demonstrates my understanding of web development basics including structure, styling, and multimedia integration.</p>
+<h2>About Us</h2>
 
-    <ul>
-        <li>HTML Structure</li>
-        <li>CSS Styling</li>
-        <li>GitHub Hosting</li>
-        <li>Responsive Layout</li>
-    </ul>
+<p>
+Nana Shop is an online store that provides affordable and quality fashion and electronics.
+We aim to give customers a smooth and easy shopping experience.
+</p>
+
+<h3>Our Mission</h3>
+<p>To make online shopping easy and affordable.</p>
+
+<h3>Our Vision</h3>
+<p>To become a leading online store in Kenya.</p>
+
+<h3>Categories</h3>
+<ul>
+<li>Shoes</li>
+<li>Handbags</li>
+<li>Electronics</li>
+<li>Clothing</li>
+<li>Accessories</li>
+</ul>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-    <h2>Services</h2>
+<hr>
 
-    <ol>
-        <li>Web Design</li>
-        <li>Website Development</li>
-        <li>UI Layout Design</li>
-        <li>Hosting on GitHub Pages</li>
-    </ol>
+<!-- PRODUCTS -->
+<section id="products">
+<h2>Our Products</h2>
 
-    <img src="https://via.placeholder.com/250">
-    <img src="https://via.placeholder.com/250">
+<div class="gallery">
+
+<div>
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+<p>Sneakers - KES 2500</p>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400">
+<p>Handbag - KES 1800</p>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+<p>Smart Watch - KES 4500</p>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1518441902117-f0a1dff2d8c8?w=400">
+<p>Headphones - KES 3000</p>
+</div>
+
+</div>
 </section>
+
+<hr>
 
 <!-- GALLERY -->
 <section id="gallery">
-    <h2>Gallery</h2>
+<h2>Gallery</h2>
 
-    <div class="gallery">
-        <img src="https://via.placeholder.com/250">
-        <img src="https://via.placeholder.com/250">
-        <img src="https://via.placeholder.com/250">
-        <img src="https://via.placeholder.com/250">
-        <img src="https://via.placeholder.com/250">
-        <img src="https://via.placeholder.com/250">
-    </div>
+<img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?w=400">
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400">
+<img src="https://images.unsplash.com/photo-1511551203524-9a24350a5771?w=400">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400">
+<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400">
+
 </section>
+
+<hr>
 
 <!-- TABLE -->
 <section id="table">
-    <h2>Student Data Table</h2>
+<h2>Product Price Table</h2>
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Grade</th>
-            <th>City</th>
-            <th>Status</th>
-        </tr>
-        <tr><td>Alice</td><td>IT</td><td>A</td><td>Nairobi</td><td>Pass</td></tr>
-        <tr><td>Brian</td><td>IT</td><td>B</td><td>Nairobi</td><td>Pass</td></tr>
-        <tr><td>Carol</td><td>IT</td><td>A</td><td>Nairobi</td><td>Pass</td></tr>
-        <tr><td>David</td><td>IT</td><td>C</td><td>Nairobi</td><td>Pass</td></tr>
-        <tr><td>Eve</td><td>IT</td><td>A</td><td>Nairobi</td><td>Pass</td></tr>
-    </table>
+<table>
+<tr>
+<th>Product</th>
+<th>Category</th>
+<th>Price</th>
+<th>Status</th>
+<th>Rating</th>
+</tr>
+
+<tr><td>Sneakers</td><td>Shoes</td><td>KES 2500</td><td>Available</td><td>5</td></tr>
+<tr><td>Handbag</td><td>Fashion</td><td>KES 1800</td><td>Available</td><td>4</td></tr>
+<tr><td>Smart Watch</td><td>Electronics</td><td>KES 4500</td><td>Available</td><td>5</td></tr>
+<tr><td>Headphones</td><td>Electronics</td><td>KES 3000</td><td>Available</td><td>4</td></tr>
+<tr><td>T-Shirt</td><td>Clothing</td><td>KES 800</td><td>Available</td><td>4</td></tr>
+
+</table>
 </section>
+
+<hr>
 
 <!-- MEDIA -->
 <section id="media">
-    <h2>Media Section</h2>
+<h2>Promotional Video</h2>
 
-    <h3>Video</h3>
-    <iframe width="400" height="250"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ">
-    </iframe>
-
-    <h3>Audio</h3>
-    <audio controls>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
-    <h3>Map</h3>
-    <iframe width="400" height="250"
-        src="https://www.google.com/maps/embed?pb=">
-    </iframe>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/9No-FiEInLA"
+allowfullscreen>
+</iframe>
 </section>
+
+<hr>
 
 <!-- CONTACT -->
 <section id="contact">
-    <h2>Contact Me</h2>
+<h2>Contact Us</h2>
 
-    <form>
-        <input type="text" placeholder="Your Name"><br><br>
-        <input type="email" placeholder="Your Email"><br><br>
-        <textarea placeholder="Your Message"></textarea><br><br>
-        <button type="submit">Send</button>
-    </form>
+<p>If you have any questions or want to order, contact us below.</p>
+
+<p>Email: nanashop@gmail.com</p>
+<p>Phone: +254 700 123 456</p>
+
+<h3>Send Message</h3>
+
+<form>
+<input type="text" placeholder="Your Name"><br>
+<input type="email" placeholder="Your Email"><br>
+<textarea placeholder="Your Message"></textarea><br>
+<button type="submit">Send</button>
+</form>
+
+<h3>Our Location</h3>
+
+<iframe
+src="https://maps.google.com/maps?q=Nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="600"
+height="350">
+</iframe>
+
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 Web Technologies Project | All Rights Reserved</p>
+<p>© 2026 Nana Shop. All Rights Reserved.</p>
 </footer>
 
 </body>
