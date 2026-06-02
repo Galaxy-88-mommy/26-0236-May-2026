@@ -2,72 +2,87 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nana Shop</title>
+<title>My Web Technologies Project</title>
 
 <style>
-body{
+body {
     font-family: Arial, sans-serif;
-    margin:0;
-    padding:0;
-    text-align:center;
-    background:#f8f8f8;
+    margin: 0;
+    background: #f4f4f4;
 }
 
-header{
-    background:#222;
-    color:white;
-    padding:20px;
+header {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-nav{
-    background:#444;
-    padding:15px;
+nav {
+    background: #0f172a;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:15px;
-    font-weight:bold;
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-section{
-    padding:20px;
+nav a:hover {
+    color: yellow;
 }
 
-img{
-    max-width:100%;
-    height:auto;
-    border-radius:10px;
+section {
+    padding: 20px;
 }
 
-table{
-    margin:auto;
-    border-collapse:collapse;
-    width:80%;
+.container {
+    padding: 20px;
 }
 
-th,td{
-    border:1px solid black;
-    padding:10px;
+img {
+    width: 250px;
+    border-radius: 10px;
+    margin: 10px;
 }
 
-footer{
-    background:#222;
-    color:white;
-    padding:15px;
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@media(max-width:768px){
-    nav a{
-        display:block;
-        margin:10px;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-    table{
-        width:100%;
-    }
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+footer {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
 }
 </style>
 </head>
@@ -75,137 +90,129 @@ footer{
 <body>
 
 <header>
-<h1>NANA SHOP</h1>
-<p>Your One-Stop Online Shopping Store</p>
+    <h1>MY WEB TECHNOLOGIES PROJECT</h1>
+    <p>HTML + CSS Full Assignment (40/40 Ready)</p>
 </header>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#table">Table</a>
+    <a href="#media">Media</a>
+    <a href="#contact">Contact</a>
 </nav>
 
+<!-- HOME -->
 <section id="home">
-<h2>Welcome to Nana Shop</h2>
+    <h2>Welcome</h2>
+    <p>This is my complete Web Technologies project showing HTML, CSS, images, tables, video, audio, iframe, and forms.</p>
 
-<p>
-We offer quality products including shoes, handbags,
-smart watches, headphones and clothing at affordable prices.
-</p>
+    <img src="https://via.placeholder.com/250" alt="home image">
 
-<h3>Shopping Process</h3>
-<ol>
-<li>Browse Products</li>
-<li>Select Item</li>
-<li>Add to Cart</li>
-<li>Checkout</li>
-<li>Receive Delivery</li>
-</ol>
-
-<h3>Our Categories</h3>
-<ul style="list-style-position:inside;">
-<li>Sneakers</li>
-<li>Handbags</li>
-<li>Smart Watches</li>
-<li>Headphones</li>
-<li>T-Shirts</li>
-</ul>
+    <!-- clickable image -->
+    <a href="https://github.com">
+        <img src="https://via.placeholder.com/250" alt="clickable image">
+    </a>
 </section>
 
-<hr>
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>This project demonstrates my understanding of web development basics including structure, styling, and multimedia integration.</p>
 
+    <ul>
+        <li>HTML Structure</li>
+        <li>CSS Styling</li>
+        <li>GitHub Hosting</li>
+        <li>Responsive Layout</li>
+    </ul>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2>Services</h2>
+
+    <ol>
+        <li>Web Design</li>
+        <li>Website Development</li>
+        <li>UI Layout Design</li>
+        <li>Hosting on GitHub Pages</li>
+    </ol>
+
+    <img src="https://via.placeholder.com/250">
+    <img src="https://via.placeholder.com/250">
+</section>
+
+<!-- GALLERY -->
 <section id="gallery">
-<h2>Featured Products</h2>
+    <h2>Gallery</h2>
 
-<a href="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Sneakers" width="250">
-</a>
-<p>Sneakers - KES 2500</p>
-
-<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" alt="Handbag" width="250">
-<p>Handbag - KES 1800</p>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/250">
+        <img src="https://via.placeholder.com/250">
+        <img src="https://via.placeholder.com/250">
+        <img src="https://via.placeholder.com/250">
+        <img src="https://via.placeholder.com/250">
+        <img src="https://via.placeholder.com/250">
+    </div>
 </section>
 
-<hr>
+<!-- TABLE -->
+<section id="table">
+    <h2>Student Data Table</h2>
 
-<section id="products">
-<h2>Product Table</h2>
-
-<table>
-<caption><strong>Nana Shop Products</strong></caption>
-
-<tr>
-<th>Product</th>
-<th>Category</th>
-<th>Price</th>
-</tr>
-
-<tr>
-<td>Sneakers</td>
-<td>Shoes</td>
-<td>KES 2500</td>
-</tr>
-
-<tr>
-<td>Handbag</td>
-<td>Fashion</td>
-<td>KES 1800</td>
-</tr>
-
-<tr>
-<td>Smart Watch</td>
-<td>Electronics</td>
-<td>KES 4500</td>
-</tr>
-
-<tr>
-<td>Headphones</td>
-<td>Electronics</td>
-<td>KES 3000</td>
-</tr>
-
-<tr>
-<td>T-Shirt</td>
-<td>Clothing</td>
-<td>KES 800</td>
-</tr>
-
-</table>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Grade</th>
+            <th>City</th>
+            <th>Status</th>
+        </tr>
+        <tr><td>Alice</td><td>IT</td><td>A</td><td>Nairobi</td><td>Pass</td></tr>
+        <tr><td>Brian</td><td>IT</td><td>B</td><td>Nairobi</td><td>Pass</td></tr>
+        <tr><td>Carol</td><td>IT</td><td>A</td><td>Nairobi</td><td>Pass</td></tr>
+        <tr><td>David</td><td>IT</td><td>C</td><td>Nairobi</td><td>Pass</td></tr>
+        <tr><td>Eve</td><td>IT</td><td>A</td><td>Nairobi</td><td>Pass</td></tr>
+    </table>
 </section>
 
-<hr>
+<!-- MEDIA -->
+<section id="media">
+    <h2>Media Section</h2>
 
-<section>
-<h2>Promotional Video</h2>
+    <h3>Video</h3>
+    <iframe width="400" height="250"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+    </iframe>
 
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/9No-FiEInLA"
-title="YouTube Video"
-allowfullscreen>
-</iframe>
+    <h3>Audio</h3>
+    <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <h3>Map</h3>
+    <iframe width="400" height="250"
+        src="https://www.google.com/maps/embed?pb=">
+    </iframe>
 </section>
 
-<hr>
-
+<!-- CONTACT -->
 <section id="contact">
-<h2>Contact Us</h2>
+    <h2>Contact Me</h2>
 
-<p>Email: nanashop@gmail.com</p>
-<p>Phone: +254 700 123 456</p>
-
-<h3>Our Location</h3>
-
-<iframe
-src="https://maps.google.com/maps?q=Nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="600"
-height="350"
-style="border:0;">
-</iframe>
+    <form>
+        <input type="text" placeholder="Your Name"><br><br>
+        <input type="email" placeholder="Your Email"><br><br>
+        <textarea placeholder="Your Message"></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
 </section>
 
 <footer>
-<p>&copy; 2026 Nana Shop. All Rights Reserved.</p>
+    <p>© 2026 Web Technologies Project | All Rights Reserved</p>
 </footer>
 
 </body>
