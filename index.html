@@ -3,6 +3,1157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nana Shop – Premium Online Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold-light: #f0d080;
+  --dark: #0e0e0e;
+  --dark2: #1a1a1a;
+  --dark3: #242424;
+  --cream: #f9f5ee;
+  --white: #ffffff;
+  --accent: #e8572a;
+  --green: #27ae60;
+  --text-muted: #888;
+  --radius: 16px;
+  --shadow: 0 8px 40px rgba(0,0,0,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+header {
+  background: linear-gradient(135deg, var(--dark) 0%, #1c1208 60%, #2a1a05 100%);
+  color: var(--white);
+  padding: 60px 20px 50px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.header-badge {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: 40px;
+  margin-bottom: 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, var(--white) 30%, var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+header p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* ========== NAV ========== */
+nav {
+  background: var(--dark2);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  max-width: 1100px;
+  margin: auto;
+}
+
+nav a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 18px 20px;
+  display: inline-block;
+  transition: color 0.2s, background 0.2s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+nav a:hover { color: var(--gold); }
+nav a:hover::after { width: 60%; }
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+  margin: 0;
+}
+
+/* ========== HOME ========== */
+#home {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#home p {
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.8;
+}
+
+.steps-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  counter-reset: steps;
+  margin-top: 20px;
+}
+
+.steps-grid li {
+  counter-increment: steps;
+  background: var(--white);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  width: 160px;
+  position: relative;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.steps-grid li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+}
+
+.steps-grid li::before {
+  content: counter(steps);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  color: var(--dark);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 auto 12px;
+}
+
+.steps-grid li { font-size: 0.9rem; font-weight: 500; color: var(--dark); }
+
+/* ========== ABOUT ========== */
+#about {
+  background: var(--dark);
+  max-width: 100%;
+  padding: 80px 20px;
+  color: var(--white);
+}
+
+#about .about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+#about h2 { color: var(--white); }
+#about .section-label { color: var(--gold); }
+
+.about-text p {
+  color: rgba(255,255,255,0.65);
+  line-height: 1.9;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.mv-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mv-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+
+.mv-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.mv-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin-top: 16px;
+}
+
+.categories-list li {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold-light);
+  border-radius: 30px;
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ========== PRODUCTS ========== */
+.products-section {
+  background: var(--cream);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  border-radius: 0;
+  transition: transform 0.4s;
+}
+
+.product-card:hover img { transform: scale(1.05); }
+
+.product-card .card-body {
+  padding: 16px 20px 20px;
+}
+
+.product-card .card-body p {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.product-card .price-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* ========== GALLERY ========== */
+#gallery {
+  background: var(--dark3);
+  max-width: 100%;
+  padding: 80px 20px;
+  color: var(--white);
+}
+
+#gallery .gallery-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#gallery h2 { color: var(--white); margin-bottom: 10px; }
+#gallery .section-label { color: var(--gold); }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0;
+  display: block;
+  transition: transform 0.3s, brightness 0.3s;
+  filter: brightness(0.85);
+}
+
+.photo-grid img:hover {
+  transform: scale(1.03);
+  filter: brightness(1);
+}
+
+/* ========== TABLE ========== */
+.table-section {
+  text-align: center;
+}
+
+.table-section h2 { margin-bottom: 8px; }
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 36px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+caption {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  padding: 16px;
+  background: var(--dark);
+  border-radius: var(--radius) var(--radius) 0 0;
+  caption-side: top;
+  letter-spacing: 1px;
+}
+
+thead tr {
+  background: var(--dark2);
+  color: var(--white);
+}
+
+th {
+  padding: 16px 20px;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  color: var(--gold);
+}
+
+td {
+  padding: 15px 20px;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  color: var(--dark);
+}
+
+tbody tr:hover { background: rgba(201,168,76,0.06); }
+tbody tr:last-child td { border-bottom: none; }
+
+.status-badge {
+  display: inline-block;
+  background: rgba(39,174,96,0.1);
+  color: var(--green);
+  border: 1px solid rgba(39,174,96,0.3);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 1px; }
+
+/* ========== MEDIA ========== */
+.media-section { text-align: center; }
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  max-width: 800px;
+  margin: 36px auto 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ========== AUDIO ========== */
+.audio-section-bg {
+  background: linear-gradient(135deg, #0e0e0e 0%, #1c1208 100%);
+  max-width: 100%;
+  padding: 80px 20px;
+  color: var(--white);
+}
+
+.audio-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.audio-inner h2 { color: var(--white); }
+.audio-inner .section-label { color: var(--gold); }
+.audio-inner > p { color: rgba(255,255,255,0.6); margin: 10px auto 40px; max-width: 500px; line-height: 1.7; }
+
+.audio-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.audio-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.audio-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.audio-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.audio-card p {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+audio {
+  width: 100%;
+  margin-top: 4px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.pay-btn {
+  background: linear-gradient(135deg, var(--gold), #a07820);
+  color: var(--dark);
+  border: none;
+  padding: 14px 32px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+}
+
+.pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+}
+
+.pay-btn:active { transform: scale(0.97); }
+
+#payment-msg {
+  display: none;
+  margin-top: 14px;
+  color: #5dda8a;
+  font-weight: 600;
+  font-size: 0.92rem;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ========== CONTACT ========== */
+.contact-section { text-align: center; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 16px; }
+
+.contact-detail {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.contact-detail .icon {
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(201,168,76,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-detail p { font-size: 0.95rem; color: var(--dark); font-weight: 500; }
+.contact-detail span { font-size: 0.78rem; color: var(--text-muted); display: block; font-weight: 400; margin-top: 2px; }
+
+.contact-form {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.contact-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+.form-group { margin-bottom: 14px; }
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--dark);
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  display: block;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
+
+.form-group textarea { resize: vertical; min-height: 110px; }
+
+.submit-btn {
+  background: var(--dark);
+  color: var(--white);
+  border: none;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.submit-btn:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
+
+.map-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-top: 40px;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  display: block;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.4);
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(201,168,76,0.15);
+  font-size: 0.85rem;
+}
+
+footer span { color: var(--gold); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav a { padding: 12px 10px; font-size: 0.72rem; }
+  #about .about-inner { grid-template-columns: 1fr; gap: 30px; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  .audio-cards { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .steps-grid li { width: 130px; }
+}
+
+@media (max-width: 480px) {
+  .photo-grid { grid-template-columns: 1fr 1fr; }
+  header h1 { font-size: 2.8rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="header-badge">Est. 2026 · Nairobi, Kenya</div>
+  <h1>NANA SHOP</h1>
+  <p>Your Trusted Premium Online Shopping Destination</p>
+</header>
+
+<!-- ========== NAV ========== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#table">Prices</a>
+    <a href="#media">Video</a>
+    <a href="#audio">Audio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ========== HOME ========== -->
+<section id="home">
+  <p class="section-label">Welcome</p>
+  <h2>Shop Smart.<br>Live Stylish.</h2>
+  <p>
+    We sell affordable, quality products including sneakers, handbags,
+    smart watches, headphones, and clothing — all delivered to your door.
+  </p>
+
+  <p style="font-weight:600; font-size:0.85rem; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); margin-bottom:16px;">How It Works</p>
+
+  <!-- ORDERED LIST — Practical 3 -->
+  <ol class="steps-grid">
+    <li>Browse Products</li>
+    <li>Select Item</li>
+    <li>Add to Cart</li>
+    <li>Checkout</li>
+    <li>Receive Delivery</li>
+  </ol>
+</section>
+
+<hr>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" style="max-width:100%; padding:0;">
+  <div class="about-inner" style="padding:80px 20px;">
+
+    <div class="about-text">
+      <p class="section-label">Our Story</p>
+      <h2 style="color:#fff;">Built for<br>Kenyan Shoppers</h2>
+      <p>
+        Nana Shop is a Nairobi-based online store bringing affordable
+        fashion and electronics to every corner of Kenya. We believe great
+        style shouldn't cost a fortune.
+      </p>
+
+      <!-- UNORDERED LIST — Practical 3 -->
+      <p style="color:rgba(255,255,255,0.5); font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Our Categories</p>
+      <ul class="categories-list">
+        <li>👟 Shoes</li>
+        <li>👜 Handbags</li>
+        <li>📱 Electronics</li>
+        <li>👕 Clothing</li>
+        <li>⌚ Accessories</li>
+      </ul>
+
+      <!-- NESTED LIST — Practical 3 -->
+      <div style="margin-top:28px;">
+        <p style="color:rgba(255,255,255,0.5); font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Electronics Subcategories</p>
+        <ul style="color:rgba(255,255,255,0.6); font-size:0.88rem; line-height:2; padding-left:20px;">
+          <li>Gadgets
+            <ul style="padding-left:18px; margin-top:4px;">
+              <li>Smart Watches</li>
+              <li>Headphones</li>
+              <li>Phones</li>
+            </ul>
+          </li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mv-cards">
+      <div class="mv-card">
+        <h3>🎯 Our Mission</h3>
+        <p>To make online shopping easy, fast, and affordable for every Kenyan.</p>
+      </div>
+      <div class="mv-card">
+        <h3>🌍 Our Vision</h3>
+        <p>To become the leading and most-loved online store in Kenya by 2030.</p>
+      </div>
+      <div class="mv-card">
+        <h3>🔗 Visit Our Partner</h3>
+        <p>Explore more deals at <a href="https://www.jumia.co.ke" target="_blank" style="color:var(--gold); text-decoration:underline;">Jumia Kenya</a> — opens in a new tab.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr>
+
+<!-- ========== PRODUCTS — Practical 1 ========== -->
+<section id="products" class="products-section" style="max-width:1100px;">
+  <p class="section-label">What We Offer</p>
+  <h2>Our Products</h2>
+
+  <div class="gallery">
+
+    <div class="product-card">
+      <!-- Image with alt attribute — Practical 1 -->
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80"
+           alt="Red Nike sneakers with white soles on a white background">
+      <div class="card-body">
+        <p>Classic Sneakers</p>
+        <span class="price-tag">KES 2,500</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
+           alt="Stylish pink leather handbag with gold chain handle">
+      <div class="card-body">
+        <p>Designer Handbag</p>
+        <span class="price-tag">KES 1,800</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <!-- Clickable image linking to another page — Practical 1 -->
+      <a href="https://www.jumia.co.ke/smart-watches/" target="_blank">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80"
+             alt="Luxury gold smart watch on a dark surface">
+      </a>
+      <div class="card-body">
+        <p>Smart Watch <span style="font-size:0.72rem;color:var(--gold);">🔗 Click to shop</span></p>
+        <span class="price-tag">KES 4,500</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80"
+           alt="Premium black over-ear headphones on a yellow background">
+      <div class="card-body">
+        <p>Premium Headphones</p>
+        <span class="price-tag">KES 3,000</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
+           alt="Folded stylish clothing items in soft pastel colors">
+      <div class="card-body">
+        <p>Fashion Clothing</p>
+        <span class="price-tag">KES 800</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80"
+           alt="White and green running shoes on a light background">
+      <div class="card-body">
+        <p>Running Shoes</p>
+        <span class="price-tag">KES 3,200</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr>
+
+<!-- ========== GALLERY — Practical 8 ========== -->
+<section id="gallery" style="max-width:100%; padding:0;">
+  <div class="gallery-inner" style="padding:80px 20px;">
+    <p class="section-label">Our Gallery</p>
+    <h2>Featured Looks</h2>
+    <p style="color:rgba(255,255,255,0.5); margin-top:8px; font-size:0.95rem;">Hover over images to reveal them</p>
+
+    <div class="photo-grid">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?w=600&q=80"
+           alt="Woman wearing a stylish jacket in a shopping street">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80"
+           alt="Gold watch close-up on a dark background">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
+           alt="Neatly folded colourful clothes on a shelf">
+      <img src="https://images.unsplash.com/photo-1511551203524-9a24350a5771?w=600&q=80"
+           alt="Sneakers collection arranged on a wooden floor">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
+           alt="Bride holding a luxury pearl handbag in a garden">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80"
+           alt="Person holding a Polaroid camera taking a photo">
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ========== TABLE — Practical 4 ========== -->
+<section id="table" class="table-section">
+  <p class="section-label">Pricing</p>
+  <h2>Product Price Table</h2>
+  <p style="color:var(--text-muted); margin-top:8px;">All items are in stock and ready to ship across Kenya</p>
+
+  <div class="table-wrapper">
+    <table>
+      <caption>Nana Shop — Current Product Catalogue 2026</caption>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Category</th>
+          <th>Price (KES)</th>
+          <th>Status</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Classic Sneakers</strong></td>
+          <td>Shoes</td>
+          <td>2,500</td>
+          <td><span class="status-badge">Available</span></td>
+          <td><span class="stars">★★★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>Designer Handbag</strong></td>
+          <td>Fashion</td>
+          <td>1,800</td>
+          <td><span class="status-badge">Available</span></td>
+          <td><span class="stars">★★★★☆</span></td>
+        </tr>
+        <tr>
+          <td><strong>Smart Watch</strong></td>
+          <td>Electronics</td>
+          <td>4,500</td>
+          <td><span class="status-badge">Available</span></td>
+          <td><span class="stars">★★★★★</span></td>
+        </tr>
+        <tr>
+          <td><strong>Premium Headphones</strong></td>
+          <td>Electronics</td>
+          <td>3,000</td>
+          <td><span class="status-badge">Available</span></td>
+          <td><span class="stars">★★★★☆</span></td>
+        </tr>
+        <tr>
+          <td><strong>Fashion T-Shirt</strong></td>
+          <td>Clothing</td>
+          <td>800</td>
+          <td><span class="status-badge">Available</span></td>
+          <td><span class="stars">★★★★☆</span></td>
+        </tr>
+        <tr>
+          <td><strong>Running Shoes</strong></td>
+          <td>Shoes</td>
+          <td>3,200</td>
+          <td><span class="status-badge">Available</span></td>
+          <td><span class="stars">★★★★★</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr>
+
+<!-- ========== VIDEO — Practical 6 ========== -->
+<section id="media" class="media-section">
+  <p class="section-label">Watch</p>
+  <h2>Promotional Video</h2>
+  <p style="color:var(--text-muted); margin-top:8px;">See what Nana Shop is all about</p>
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/9No-FiEInLA"
+      title="Nana Shop Promotional Video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<hr>
+
+<!-- ========== AUDIO — Practical 5 ========== -->
+<section id="audio" class="audio-section-bg" style="max-width:100%; padding:0;">
+  <div class="audio-inner" style="padding:80px 20px;">
+    <p class="section-label">Sound</p>
+    <h2>Card Payment Audio</h2>
+    <p>Experience our card payment confirmation sound. Hear it below or simulate a payment.</p>
+
+    <div class="audio-cards">
+
+      <!-- HTML Audio element with controls — Practical 5 -->
+      <div class="audio-card">
+        <div class="icon">🎵</div>
+        <h3>Payment Sound Preview</h3>
+        <p>Use audio controls to play, pause, or adjust volume of our payment sound.</p>
+        <audio id="paymentAudio" controls>
+          <source src="https://www.soundjay.com/misc/sounds/cash-register-1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="audio-card">
+        <div class="icon">💳</div>
+        <h3>Simulate Payment</h3>
+        <p>Click the button below to simulate a card payment and hear the confirmation beep.</p>
+        <button class="pay-btn" onclick="playPaymentSound()">💳 Pay Now</button>
+        <p id="payment-msg">✅ Payment Successful! Thank you!</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ========== CONTACT — Practicals 2 & 7 ========== -->
+<section id="contact" class="contact-section">
+  <p class="section-label">Get In Touch</p>
+  <h2>Contact Us</h2>
+  <p style="color:var(--text-muted); margin-top:8px;">We'd love to hear from you</p>
+
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <div class="contact-detail">
+        <div class="icon">📧</div>
+        <div>
+          <p>nanashop@gmail.com</p>
+          <span>Email us anytime</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📞</div>
+        <div>
+          <p>+254 700 123 456</p>
+          <span>Mon–Sat, 8am–6pm</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📍</div>
+        <div>
+          <p>Nairobi, Kenya</p>
+          <span>We deliver nationwide</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your Message..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message →</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- MAP IFRAME — Practical 7 -->
+  <div class="map-wrapper">
+    <iframe
+      src="https://maps.google.com/maps?q=Nairobi+CBD+Kenya&t=&z=14&ie=UTF8&iwloc=&output=embed"
+      title="Nana Shop Location – Nairobi, Kenya"
+      width="600"
+      height="350">
+    </iframe>
+  </div>
+
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>© 2026 <span>Nana Shop</span>. All Rights Reserved. Made with ❤️ in Nairobi.</p>
+</footer>
+
+<!-- ========== AUDIO JS ========== -->
+<script>
+function playPaymentSound() {
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtx) { alert('Payment sound not supported in this browser.'); return; }
+
+  const ctx = new AudioCtx();
+
+  function beep(freq, start, duration, vol) {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
+    gain.gain.setValueAtTime(vol, ctx.currentTime + start);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + duration);
+    osc.start(ctx.currentTime + start);
+    osc.stop(ctx.currentTime + start + duration);
+  }
+
+  // Card swipe sound: two rising tones
+  beep(660, 0,    0.18, 0.35);
+  beep(880, 0.22, 0.18, 0.35);
+  beep(1100, 0.44, 0.25, 0.3);
+
+  const msg = document.getElementById('payment-msg');
+  msg.style.display = 'block';
+  setTimeout(() => { msg.style.display = 'none'; }, 4000);
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nana Shop</title>
 
 <style>
