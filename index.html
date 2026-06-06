@@ -94,6 +94,421 @@ footer{
     margin-top:20px;
 }
 
+/* AUDIO SECTION */
+.audio-section {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.audio-section h3 {
+    margin-top: 0;
+    color: #222;
+}
+
+audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* PAY BUTTON */
+.pay-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.pay-btn:hover {
+    background: #218838;
+}
+
+.pay-btn:active {
+    background: #1e7e34;
+}
+
+/* Payment success message */
+#payment-msg {
+    display: none;
+    margin-top: 12px;
+    color: #28a745;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav a{
+        display:block;
+        margin:10px;
+    }
+
+    table{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>NANA SHOP</h1>
+<p>Your Trusted Online Shopping Store</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#products">Products</a>
+<a href="#gallery">Gallery</a>
+<a href="#table">Table</a>
+<a href="#media">Media</a>
+<a href="#audio">Audio</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+<h2>Welcome to Nana Shop</h2>
+
+<p>
+We sell affordable and quality products including sneakers, handbags,
+smart watches, headphones, and clothing.
+</p>
+
+<h3>Shopping Steps</h3>
+<ol>
+<li>Browse products</li>
+<li>Select item</li>
+<li>Add to cart</li>
+<li>Checkout</li>
+<li>Receive delivery</li>
+</ol>
+</section>
+
+<hr>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+
+<p>
+Nana Shop is an online store that provides affordable and quality fashion and electronics.
+We aim to give customers a smooth and easy shopping experience.
+</p>
+
+<h3>Our Mission</h3>
+<p>To make online shopping easy and affordable.</p>
+
+<h3>Our Vision</h3>
+<p>To become a leading online store in Kenya.</p>
+
+<h3>Categories</h3>
+<ul>
+<li>Shoes</li>
+<li>Handbags</li>
+<li>Electronics</li>
+<li>Clothing</li>
+<li>Accessories</li>
+</ul>
+</section>
+
+<hr>
+
+<!-- PRODUCTS -->
+<section id="products">
+<h2>Our Products</h2>
+
+<div class="gallery">
+
+<div>
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+<p>Sneakers - KES 2500</p>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400">
+<p>Handbag - KES 1800</p>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+<p>Smart Watch - KES 4500</p>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1518441902117-f0a1dff2d8c8?w=400">
+<p>Headphones - KES 3000</p>
+</div>
+
+</div>
+</section>
+
+<hr>
+
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Gallery</h2>
+
+<img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?w=400">
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400">
+<img src="https://images.unsplash.com/photo-1511551203524-9a24350a5771?w=400">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400">
+<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400">
+
+</section>
+
+<hr>
+
+<!-- TABLE -->
+<section id="table">
+<h2>Product Price Table</h2>
+
+<table>
+<tr>
+<th>Product</th>
+<th>Category</th>
+<th>Price</th>
+<th>Status</th>
+<th>Rating</th>
+</tr>
+
+<tr><td>Sneakers</td><td>Shoes</td><td>KES 2500</td><td>Available</td><td>5</td></tr>
+<tr><td>Handbag</td><td>Fashion</td><td>KES 1800</td><td>Available</td><td>4</td></tr>
+<tr><td>Smart Watch</td><td>Electronics</td><td>KES 4500</td><td>Available</td><td>5</td></tr>
+<tr><td>Headphones</td><td>Electronics</td><td>KES 3000</td><td>Available</td><td>4</td></tr>
+<tr><td>T-Shirt</td><td>Clothing</td><td>KES 800</td><td>Available</td><td>4</td></tr>
+
+</table>
+</section>
+
+<hr>
+
+<!-- MEDIA -->
+<section id="media">
+<h2>Promotional Video</h2>
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/9No-FiEInLA"
+allowfullscreen>
+</iframe>
+</section>
+
+<hr>
+
+<!-- AUDIO SECTION -->
+<section id="audio">
+<h2>Card Payment Sound</h2>
+<p>Listen to our card payment confirmation sound below:</p>
+
+<div class="audio-section">
+    <h3>💳 Payment Sound Effect</h3>
+    <p>This sound plays every time a successful card payment is made.</p>
+
+    <!-- Audio element with controls - uses a free public payment sound -->
+    <audio id="paymentAudio" controls>
+        <source src="https://www.soundjay.com/misc/sounds/cash-register-1.mp3" type="audio/mpeg">
+        <source src="https://actions.google.com/sounds/v1/cartoon/concussive_hit_guitar_boing.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <p style="font-size:13px; color:#777; margin-top:8px;">
+        ▶ Press play above to preview the payment sound
+    </p>
+</div>
+
+<div class="audio-section">
+    <h3>🛒 Simulate Card Payment</h3>
+    <p>Click the button below to simulate a card payment and hear the sound:</p>
+    <button class="pay-btn" onclick="playPaymentSound()">💳 Pay Now</button>
+    <p id="payment-msg">✅ Payment Successful! Thank you for shopping at Nana Shop.</p>
+</div>
+</section>
+
+<hr>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+
+<p>If you have any questions or want to order, contact us below.</p>
+
+<p>Email: nanashop@gmail.com</p>
+<p>Phone: +254 700 123 456</p>
+
+<h3>Send Message</h3>
+
+<form>
+<input type="text" placeholder="Your Name"><br>
+<input type="email" placeholder="Your Email"><br>
+<textarea placeholder="Your Message"></textarea><br>
+<button type="submit">Send</button>
+</form>
+
+<h3>Our Location</h3>
+
+<iframe
+src="https://maps.google.com/maps?q=Nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="600"
+height="350">
+</iframe>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Nana Shop. All Rights Reserved.</p>
+</footer>
+
+<!-- AUDIO JAVASCRIPT -->
+<script>
+// Generate a card payment beep sound using Web Audio API
+// This works without any external sound file
+function playPaymentSound() {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Beep 1 - card swipe high tone
+    const osc1 = audioCtx.createOscillator();
+    const gain1 = audioCtx.createGain();
+    osc1.connect(gain1);
+    gain1.connect(audioCtx.destination);
+    osc1.type = 'sine';
+    osc1.frequency.setValueAtTime(880, audioCtx.currentTime);
+    gain1.gain.setValueAtTime(0.4, audioCtx.currentTime);
+    gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+    osc1.start(audioCtx.currentTime);
+    osc1.stop(audioCtx.currentTime + 0.3);
+
+    // Beep 2 - success confirmation tone
+    const osc2 = audioCtx.createOscillator();
+    const gain2 = audioCtx.createGain();
+    osc2.connect(gain2);
+    gain2.connect(audioCtx.destination);
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(1100, audioCtx.currentTime + 0.35);
+    gain2.gain.setValueAtTime(0.4, audioCtx.currentTime + 0.35);
+    gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.65);
+    osc2.start(audioCtx.currentTime + 0.35);
+    osc2.stop(audioCtx.currentTime + 0.65);
+
+    // Show success message after sound
+    const msg = document.getElementById('payment-msg');
+    msg.style.display = 'block';
+    setTimeout(function() {
+        msg.style.display = 'none';
+    }, 4000);
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nana Shop</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    text-align:center;
+    background:#f8f8f8;
+}
+
+/* HEADER */
+header{
+    background:#222;
+    color:white;
+    padding:20px;
+}
+
+/* NAV */
+nav{
+    background:#444;
+    padding:15px;
+    position: sticky;
+    top: 0;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color: yellow;
+}
+
+/* SECTIONS */
+section{
+    padding:20px;
+}
+
+/* GALLERY */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.gallery div{
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
+
+/* IMAGES */
+img{
+    width:250px;
+    border-radius:10px;
+    margin:10px;
+}
+
+/* TABLE */
+table{
+    margin:auto;
+    border-collapse:collapse;
+    width:85%;
+    background:white;
+}
+
+th,td{
+    border:1px solid black;
+    padding:10px;
+}
+
+/* FORM */
+input, textarea{
+    width:80%;
+    padding:10px;
+    margin:5px;
+}
+
+/* FOOTER */
+footer{
+    background:#222;
+    color:white;
+    padding:15px;
+    margin-top:20px;
+}
+
 /* RESPONSIVE */
 @media(max-width:768px){
     nav a{
