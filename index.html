@@ -3,591 +3,1513 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nana Shop</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Nana Shop — Kenya's Online Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- =====================================================
+     ASSIGNMENT 1: EXTERNAL CSS (style.css contents below)
+     In a real project this would be: <link rel="stylesheet" href="style.css">
+     For GitHub single-file use, CSS is embedded below.
+====================================================== -->
 <style>
 
-/* ── GENERAL ── */
-* { box-sizing: border-box; }
+/* ═══════════════════════════════════════════════
+   NANA SHOP — style.css (External CSS)
+═══════════════════════════════════════════════ */
+
+/* ── RESET & VARIABLES ─────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #0A1628;
+  --teal:   #0D9488;
+  --teall:  #2DD4BF;
+  --mint:   #CCFBF1;
+  --white:  #FFFFFF;
+  --off:    #F8FAFC;
+  --slate:  #64748B;
+  --light:  #E2E8F0;
+  --dark:   #1E293B;
+  --amber:  #F59E0B;
+  --radius: 14px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.10);
+  --max:    1200px;
+}
+
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f4f8;
-    color: #222;
-    text-align: center;
+  font-family: 'Inter', sans-serif;
+  background: var(--off);
+  color: var(--dark);
+  line-height: 1.6;
 }
 
-/* ── HEADER ── */
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+img { display: block; width: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+
+/* ── WELCOME POPUP ─────────────────────────── */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 22, 40, 0.80);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-box {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 460px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: slideUp 0.4s ease;
+}
+
+.popup-icon { font-size: 56px; margin-bottom: 16px; }
+
+.popup-box h2 {
+  font-size: 28px;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.popup-box p {
+  color: var(--slate);
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+.popup-btn {
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  padding: 14px 38px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.popup-btn:hover { background: #0B7A70; transform: scale(1.03); }
+
+.popup-close {
+  position: absolute;
+  top: 14px; right: 18px;
+  font-size: 22px;
+  color: var(--slate);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.popup-close:hover { color: var(--dark); }
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes slideUp { from { transform:translateY(30px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+
+/* ── HEADER ────────────────────────────────── */
 header {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: white;
-    padding: 50px 20px;
+  background: linear-gradient(135deg, var(--navy) 0%, #0D2A2A 100%);
+  text-align: center;
+  padding: 70px 20px 60px;
+  position: relative;
+  overflow: hidden;
 }
+
+header::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: var(--teal);
+  opacity: 0.08;
+  border-radius: 50%;
+  top: -150px; right: -100px;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  background: var(--teall);
+  opacity: 0.07;
+  border-radius: 50%;
+  bottom: -100px; left: -60px;
+}
+
+.header-badge {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 5px 18px;
+  border-radius: 30px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
 header h1 {
-    font-size: 52px;
-    margin: 0;
-    color: #f5c518;
-    letter-spacing: 3px;
-}
-header p {
-    font-size: 16px;
-    color: #ccc;
-    margin-top: 10px;
+  font-size: clamp(42px, 7vw, 80px);
+  color: var(--white);
+  letter-spacing: -1px;
+  line-height: 1.05;
 }
 
-/* ── TASK 1: CENTERED NAV WITH NICE BACKGROUND ── */
+header h1 span { color: var(--teall); }
+
+header > p {
+  color: #94A3B8;
+  font-size: 16px;
+  margin-top: 12px;
+  font-weight: 300;
+}
+
+.header-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.header-stats div { text-align: center; }
+
+.header-stats strong {
+  display: block;
+  font-size: 26px;
+  color: var(--teall);
+  font-family: 'Playfair Display', serif;
+}
+
+.header-stats span { font-size: 12px; color: #64748B; }
+
+/* ── NAV — CENTERED ────────────────────────── */
 nav {
-    background: linear-gradient(90deg, #f5c518, #e0a800);
-    padding: 16px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: center;   /* centres all links */
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: var(--white);
+  border-bottom: 1px solid var(--light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 10px 20px;
+}
+
 nav a {
-    color: #1a1a2e;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 25px;
-    transition: background 0.3s, color 0.3s;
-}
-nav a:hover {
-    background: #1a1a2e;
-    color: #f5c518;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
-/* ── SECTIONS ── */
-section {
-    padding: 50px 20px;
-    max-width: 960px;
-    margin: auto;
+nav a:hover { background: var(--mint); color: var(--teal); }
+
+nav a.external {
+  background: var(--teal);
+  color: var(--white);
 }
 
-h2 {
-    font-size: 30px;
-    color: #1a1a2e;
-    border-bottom: 3px solid #f5c518;
-    display: inline-block;
-    padding-bottom: 6px;
-    margin-bottom: 20px;
-}
-h3 { color: #16213e; margin-top: 24px; }
-p { font-size: 15px; line-height: 1.8; color: #444; }
-hr { border: none; border-top: 2px solid #ddd; margin: 0; }
+nav a.external:hover { background: #0B7A70; }
 
-/* ── LISTS ── */
-ol, ul {
-    text-align: left;
-    display: inline-block;
-    font-size: 15px;
-    line-height: 2.2;
-    color: #333;
-    background: white;
-    padding: 16px 36px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    min-width: 260px;
-    margin-top: 10px;
-}
-ul ul {
-    box-shadow: none;
-    background: none;
-    padding-left: 20px;
-    margin-top: 0;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.8;
-    min-width: unset;
+/* ── SECTION BASE ──────────────────────────── */
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 70px 24px;
 }
 
-/* ── TWO IMAGES (HOME) ── */
-.two-images {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-}
-.two-images div {
-    background: white;
-    padding: 14px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.two-images img {
-    width: 280px;
-    height: 210px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-.two-images p { font-weight: 600; color: #1a1a2e; margin-top: 8px; }
-
-/* ── PRODUCTS ── */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-.gallery div {
-    background: white;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    width: 220px;
-}
-.gallery div p { font-weight: 600; color: #1a1a2e; margin: 8px 0 4px; font-size: 14px; }
-.gallery div span {
-    background: #f5c518;
-    color: #1a1a2e;
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-}
-.gallery img {
-    width: 220px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
 }
 
-/* ── TASK 3: IMAGES & VIDEO GRID (min 2 rows x 2 cols) ── */
-.media-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 20px;
-}
-.media-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-    transition: transform 0.3s;
-}
-.media-grid img:hover { transform: scale(1.04); }
-
-/* video spans 2 columns on the last row */
-.media-grid .video-cell {
-    grid-column: span 2;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.media-grid .video-cell iframe {
-    width: 100%;
-    height: 280px;
-    border: none;
-    display: block;
-}
-.media-grid .img-tall {
-    grid-row: span 1;
+.section-label::before {
+  content: '';
+  width: 24px; height: 2px;
+  background: var(--teal);
 }
 
-/* ── TASK 2: FULL PAGE TABLE ── */
-.table-section {
-    padding: 50px 0;
-    background: #1a1a2e;  /* full width dark background */
-    width: 100%;
-    max-width: 100%;
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--navy);
+  margin-bottom: 8px;
 }
-.table-section h2 {
-    color: #f5c518;
-    border-bottom: 3px solid #f5c518;
-    margin-bottom: 24px;
+
+.section-sub {
+  color: var(--slate);
+  font-size: 15px;
+  margin-bottom: 40px;
 }
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--light);
+  margin: 0;
+}
+
+/* ── HOME ──────────────────────────────────── */
+.how-to-shop {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.how-to-shop h3 { color: var(--teall); font-size: 18px; margin-bottom: 18px; }
+
+.how-to-shop ol,
+.how-to-shop ul {
+  padding-left: 20px;
+  color: #CBD5E1;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.how-to-shop li::marker { color: var(--teal); }
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.featured-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.featured-card img { height: 280px; transition: transform 0.4s; }
+.featured-card:hover img { transform: scale(1.04); }
+
+.featured-card-info {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.featured-card-info p { font-weight: 600; color: var(--dark); font-size: 15px; }
+
+.price-tag {
+  background: var(--mint);
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ── ABOUT ─────────────────────────────────── */
+#about { background: var(--white); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-card {
+  background: var(--off);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  border-left: 4px solid var(--teal);
+  margin-bottom: 20px;
+}
+
+.about-card h3 { color: var(--navy); font-size: 18px; margin-bottom: 10px; }
+
+.about-card p,
+.about-card li { color: var(--slate); font-size: 14px; line-height: 1.9; }
+
+.about-card ul { padding-left: 18px; }
+.about-card li::marker { color: var(--teal); }
+
+/* ── PRODUCTS — 3-column grid ──────────────── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  display: block;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.14);
+}
+
+.product-card img { height: 220px; }
+.product-card-body { padding: 16px 18px 20px; }
+.product-card-body p { font-weight: 600; font-size: 15px; color: var(--dark); margin-bottom: 8px; }
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price { color: var(--teal); font-weight: 700; font-size: 16px; }
+
+.add-btn {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-btn:hover { background: var(--teal); }
+
+/* ── GALLERY ───────────────────────────────── */
+#gallery { background: var(--navy); padding: 70px 0; }
+#gallery .section-title { color: var(--white); }
+#gallery .section-label { color: var(--teall); }
+#gallery .section-label::before { background: var(--teall); }
+#gallery .section-sub { color: #64748B; }
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 220px);
+  gap: 14px;
+  overflow: hidden;
+}
+
+.photo-gallery img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s, filter 0.3s;
+  filter: brightness(0.88);
+}
+
+.photo-gallery img:hover { transform: scale(1.04); filter: brightness(1.05); }
+
+/* ── TABLE ─────────────────────────────────── */
+#table-section { background: var(--white); }
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
 table {
-    margin: 0 auto;
-    border-collapse: collapse;
-    width: 95%;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
 }
-caption {
-    font-size: 18px;
-    font-weight: 700;
-    padding: 16px;
-    background: #f5c518;
-    color: #1a1a2e;
-    caption-side: top;
-    letter-spacing: 1px;
-}
-th {
-    background: #16213e;
-    color: #f5c518;
-    padding: 14px 18px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-/* alternating row colours */
-tr:nth-child(even) td { background: #2a2a4e; color: #fff; }
-tr:nth-child(odd) td  { background: #1e1e3a; color: #ccc; }
-td {
-    padding: 13px 18px;
-    border-bottom: 1px solid #333;
-    font-size: 14px;
-}
-tr:last-child td { border-bottom: none; }
-tr:hover td { background: #f5c518 !important; color: #1a1a2e !important; }
 
-/* ── AUDIO ── */
-.audio-box {
-    background: white;
-    border-radius: 12px;
-    padding: 24px;
-    max-width: 460px;
-    margin: 16px auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+caption {
+  caption-side: top;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 700;
+  padding: 20px 24px 14px;
+  text-align: left;
+  background: var(--white);
 }
-audio { width: 100%; margin-top: 8px; }
+
+thead { background: var(--navy); }
+
+thead th {
+  color: var(--white);
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+tbody tr { border-bottom: 1px solid var(--light); background: var(--white); transition: background 0.15s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--off); }
+tbody td { padding: 16px 20px; color: var(--dark); }
+
+.status-badge {
+  display: inline-block;
+  background: #DCFCE7;
+  color: #16A34A;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.stars { color: var(--amber); letter-spacing: 2px; font-size: 13px; }
+
+.cat-pill {
+  display: inline-block;
+  background: var(--mint);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── VIDEO — 2 columns × 2 rows GRID ───────── */
+#media { background: var(--off); }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.video-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--navy);
+}
+
+.video-label {
+  padding: 12px 18px;
+  color: var(--teall);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.video-card iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  display: block;
+}
+
+/* ── AUDIO ─────────────────────────────────── */
+#audio { background: var(--white); }
+
+.audio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.audio-card {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.audio-card h3 { color: var(--white); font-size: 18px; margin-bottom: 10px; }
+.audio-card p { color: #94A3B8; font-size: 13px; margin-bottom: 18px; }
+
+audio { width: 100%; accent-color: var(--teal); }
 
 .pay-btn {
-    background: #f5c518;
-    color: #1a1a2e;
-    border: none;
-    padding: 12px 30px;
-    font-size: 15px;
-    font-weight: 700;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-family: 'Poppins', sans-serif;
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-.pay-btn:hover { background: #e0b000; }
-#payment-msg { display: none; margin-top: 12px; color: green; font-weight: 600; }
 
-/* ── FORM ── */
-input, textarea {
-    width: 80%;
-    padding: 10px 14px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+.pay-btn:hover { background: #0B7A70; transform: scale(1.03); }
+
+#payment-msg {
+  display: none;
+  margin-top: 16px;
+  background: #DCFCE7;
+  color: #16A34A;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
 }
-button[type="submit"] {
-    background: #1a1a2e;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    margin-top: 8px;
+
+/* ── CONTACT ───────────────────────────────── */
+#contact { background: var(--off); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
 }
-button[type="submit"]:hover { background: #f5c518; color: #1a1a2e; }
 
-/* ── MAP ── */
-.map-wrapper { margin-top: 20px; border-radius: 12px; overflow: hidden; }
+.contact-info { display: flex; flex-direction: column; gap: 16px; }
 
-/* ── TASK 4: FOOTER WITH AESTHETICS ── */
+.contact-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow);
+}
+
+.contact-icon {
+  width: 44px; height: 44px;
+  background: var(--mint);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 11px;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-item span { font-size: 14px; color: var(--dark); font-weight: 500; }
+
+/* ── FORM ──────────────────────────────────── */
+.contact-form {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.contact-form h3 { color: var(--navy); font-size: 20px; margin-bottom: 20px; }
+
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--slate);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--light);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  background: var(--off);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--teal);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(13,148,136,0.1);
+}
+
+.form-group input.valid   { border-color: #22C55E; background: #F0FDF4; }
+.form-group input.invalid { border-color: #EF4444; background: #FFF5F5; }
+
+.field-error {
+  display: none;
+  color: #EF4444;
+  font-size: 11px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.field-hint {
+  color: var(--slate);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.gender-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--off);
+  border: 1.5px solid var(--light);
+  border-radius: 10px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.gender-option input[type="radio"] { accent-color: var(--teal); }
+
+.gender-option:has(input:checked) {
+  border-color: var(--teal);
+  background: var(--mint);
+  color: var(--teal);
+}
+
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.submit-btn {
+  width: 100%;
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 6px;
+}
+
+.submit-btn:hover { background: #0B7A70; transform: scale(1.01); }
+
+.form-success {
+  display: none;
+  background: #DCFCE7;
+  border: 1.5px solid #86EFAC;
+  color: #15803D;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ── MAP ───────────────────────────────────── */
+.map-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+  aspect-ratio: 16/6;
+}
+
+.map-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+/* ── FOOTER ────────────────────────────────── */
 footer {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: #ccc;
-    padding: 30px 20px;
-    font-size: 14px;
+  background: var(--navy);
+  text-align: center;
+  padding: 36px 20px;
 }
-footer span { color: #f5c518; font-weight: 700; }
 
-/* ── RESPONSIVE ── */
+footer p { color: #475569; font-size: 13px; }
+footer span { color: var(--teall); }
+
+/* ── RESPONSIVE ────────────────────────────── */
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .video-grid    { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
-    nav a { font-size: 12px; padding: 6px 10px; }
-    table { width: 100%; font-size: 12px; }
-    .media-grid { grid-template-columns: repeat(2, 1fr); }
-    .media-grid .video-cell { grid-column: span 2; }
-    .two-images img { width: 220px; height: 170px; }
+  .how-to-shop,
+  .about-grid,
+  .featured-grid,
+  .audio-grid,
+  .contact-grid { grid-template-columns: 1fr; }
+  .photo-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 180px); }
+}
+
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .photo-gallery { grid-template-columns: 1fr; }
+  .photo-gallery img { height: 200px; }
 }
 
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- =====================================================
+     ASSIGNMENT 2: WELCOME POPUP (JavaScript)
+====================================================== -->
+<div class="popup-overlay" id="welcomePopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">&#10005;</button>
+    <div class="popup-icon">🛍️</div>
+    <h2>Welcome to Nana Shop!</h2>
+    <p>
+      Your trusted online shopping store in Kenya. 🇰🇪<br><br>
+      Discover quality sneakers, handbags, electronics &amp; more —
+      all delivered to your door in Nairobi.
+    </p>
+    <button class="popup-btn" onclick="closePopup()">Start Shopping →</button>
+  </div>
+</div>
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
 <header>
-    <h1>🛍️ NANA SHOP</h1>
-    <p>Your Trusted Online Shopping Store in Kenya</p>
+  <div class="header-badge">🇰🇪 Nairobi, Kenya</div>
+  <h1>NANA <span>SHOP</span></h1>
+  <p>Your Trusted Online Shopping Store in Kenya</p>
+  <div class="header-stats">
+    <div><strong>500+</strong><span>Products</span></div>
+    <div><strong>24/7</strong><span>Shopping</span></div>
+    <div><strong>KES</strong><span>Best Prices</span></div>
+    <div><strong>🚚</strong><span>Nairobi Delivery</span></div>
+  </div>
 </header>
 
-<!-- TASK 1: CENTERED NAV WITH GRADIENT BACKGROUND -->
+<!-- =====================================================
+     NAVIGATION — Centered
+====================================================== -->
 <nav>
+  <div class="nav-inner">
     <a href="#home">Home</a>
     <a href="#about">About Us</a>
     <a href="#products">Products</a>
-    <a href="#media">Gallery & Video</a>
-    <a href="#table">Prices</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#table-section">Prices</a>
+    <a href="#media">Video</a>
     <a href="#audio">Audio</a>
     <a href="#contact">Contact</a>
-    <a href="https://www.jumia.co.ke" target="_blank">Jumia Kenya 🔗</a>
+    <a href="https://www.jumia.co.ke" target="_blank" class="external">Jumia Kenya 🔗</a>
+  </div>
 </nav>
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME SECTION
+====================================================== -->
 <section id="home">
-    <h2>Welcome to Nana Shop</h2>
-    <p>We sell affordable and quality products including sneakers, handbags, smart watches, headphones, and clothing — delivered right to your door.</p>
+  <div class="section">
+    <div class="section-label">Welcome</div>
+    <h2 class="section-title">Shop Smart. Shop Easy.</h2>
+    <p class="section-sub">
+      Affordable sneakers, handbags, smart watches, headphones &amp; clothing —
+      delivered right to your door.
+    </p>
 
-    <h3>How to Shop</h3>
-    <ol>
-        <li>Browse our products</li>
-        <li>Select the item you want</li>
-        <li>Add the item to your cart</li>
-        <li>Proceed to checkout and pay</li>
-        <li>Wait for your delivery at home</li>
-    </ol>
-
-    <h3>What We Sell</h3>
-    <ul>
-        <li>👟 Sneakers</li>
-        <li>👜 Handbags</li>
-        <li>⌚ Smart Watches</li>
-        <li>🎧 Headphones</li>
-        <li>👕 Clothing</li>
-    </ul>
-
-    <h3>Featured Products</h3>
-    <div class="two-images">
-        <div>
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Red Nike sneakers" width="280" height="210">
-            <p>Classic Sneakers — KES 2,500</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Pink leather handbag" width="280" height="210">
-            <p>Designer Handbag — KES 1,800</p>
-        </div>
+    <!-- How to Shop + What We Sell — 2-column grid -->
+    <div class="how-to-shop">
+      <div>
+        <h3>📋 How to Shop — Ordered List (5 Items)</h3>
+        <ol>
+          <li>Browse our products</li>
+          <li>Select the item you want</li>
+          <li>Add the item to your cart</li>
+          <li>Proceed to checkout and pay</li>
+          <li>Wait for your delivery at home</li>
+        </ol>
+      </div>
+      <div>
+        <h3>🛍️ What We Sell — Unordered List (5 Items)</h3>
+        <ul>
+          <li>👟 Sneakers</li>
+          <li>👜 Handbags</li>
+          <li>⌚ Smart Watches</li>
+          <li>🎧 Headphones</li>
+          <li>👕 Clothing</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Featured Products — 2 Images side by side -->
+    <div class="section-label">Featured Products — Two Images</div>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80"
+             alt="Red Nike sneakers on a white background">
+        <div class="featured-card-info">
+          <p>Classic Sneakers</p>
+          <span class="price-tag">KES 2,500</span>
+        </div>
+      </div>
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
+             alt="Pink leather handbag with gold chain handle">
+        <div class="featured-card-info">
+          <p>Designer Handbag</p>
+          <span class="price-tag">KES 1,800</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr>
+<hr class="section-divider">
 
-<!-- ABOUT -->
+<!-- =====================================================
+     ABOUT SECTION
+====================================================== -->
 <section id="about">
-    <h2>About Us</h2>
-    <p>Nana Shop is an online store based in Nairobi, Kenya. We provide affordable and quality fashion and electronics. Our goal is to give every customer a smooth and easy shopping experience.</p>
+  <div class="section">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">About Us</h2>
+    <p class="section-sub">
+      Nana Shop is an online store based in Nairobi, Kenya. We provide affordable
+      and quality fashion and electronics. Our goal is to give every customer a
+      smooth and easy shopping experience.
+    </p>
 
-    <h3>Our Mission</h3>
-    <p>To make online shopping easy and affordable for every Kenyan.</p>
-
-    <h3>Our Vision</h3>
-    <p>To become the leading online store in Kenya.</p>
-
-    <h3>Our Categories</h3>
-    <ul>
-        <li>Shoes</li>
-        <li>Handbags</li>
-        <li>Electronics</li>
-        <li>Clothing</li>
-        <li>Accessories</li>
-    </ul>
-
-    <h3>Electronics Subcategories (Nested List)</h3>
-    <ul>
-        <li>Gadgets
-            <ul>
+    <div class="about-grid">
+      <div>
+        <div class="about-card">
+          <h3>🎯 Our Mission</h3>
+          <p>To make online shopping easy and affordable for every Kenyan.</p>
+        </div>
+        <div class="about-card">
+          <h3>🌍 Our Vision</h3>
+          <p>To become the leading online store in Kenya.</p>
+        </div>
+      </div>
+      <div>
+        <div class="about-card">
+          <h3>🗂️ Our Categories</h3>
+          <ul>
+            <li>Shoes</li>
+            <li>Handbags</li>
+            <li>Electronics</li>
+            <li>Clothing</li>
+            <li>Accessories</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>📱 Electronics Subcategories (Nested List)</h3>
+          <ul>
+            <li>Gadgets
+              <ul style="padding-left:16px; margin-top:4px;">
                 <li>Smart Watches</li>
                 <li>Headphones</li>
                 <li>Phones</li>
-            </ul>
-        </li>
-        <li>Accessories</li>
-        <li>Cables and Chargers</li>
-    </ul>
+              </ul>
+            </li>
+            <li>Accessories</li>
+            <li>Cables and Chargers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr>
+<hr class="section-divider">
 
-<!-- PRODUCTS -->
+<!-- =====================================================
+     PRODUCTS SECTION
+====================================================== -->
 <section id="products">
-    <h2>Our Products</h2>
-    <p>Click on the Smart Watch image to shop more!</p>
-    <div class="gallery">
-        <div>
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Red Nike sneakers">
-            <p>Classic Sneakers</p><span>KES 2,500</span>
+  <div class="section">
+    <div class="section-label">Shop Now</div>
+    <h2 class="section-title">Our Products</h2>
+    <p class="section-sub">Click on the Smart Watch image to shop more on Jumia Kenya!</p>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80"
+             alt="Red Nike sneakers on a white background">
+        <div class="product-card-body">
+          <p>Classic Sneakers</p>
+          <div class="product-meta">
+            <span class="product-price">KES 2,500</span>
+            <button class="add-btn">+ Cart</button>
+          </div>
         </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Pink leather handbag">
-            <p>Designer Handbag</p><span>KES 1,800</span>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
+             alt="Pink leather handbag with gold chain handle">
+        <div class="product-card-body">
+          <p>Designer Handbag</p>
+          <div class="product-meta">
+            <span class="product-price">KES 1,800</span>
+            <button class="add-btn">+ Cart</button>
+          </div>
         </div>
-        <div>
-            <a href="https://www.jumia.co.ke/smart-watches/" target="_blank">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Gold smart watch — click to shop">
-            </a>
-            <p>Smart Watch 🔗</p><span>KES 4,500</span>
+      </div>
+
+      <a href="https://www.jumia.co.ke/smart-watches/" target="_blank" class="product-card">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80"
+             alt="Gold smart watch — click to shop on Jumia">
+        <div class="product-card-body">
+          <p>Smart Watch 🔗</p>
+          <div class="product-meta">
+            <span class="product-price">KES 4,500</span>
+            <button class="add-btn">Shop →</button>
+          </div>
         </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="Black headphones">
-            <p>Premium Headphones</p><span>KES 3,000</span>
+      </a>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80"
+             alt="Black premium headphones on yellow background">
+        <div class="product-card-body">
+          <p>Premium Headphones</p>
+          <div class="product-meta">
+            <span class="product-price">KES 3,000</span>
+            <button class="add-btn">+ Cart</button>
+          </div>
         </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80" alt="Colourful clothes">
-            <p>Fashion Clothing</p><span>KES 800</span>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
+             alt="Folded colourful clothes on a shelf">
+        <div class="product-card-body">
+          <p>Fashion Clothing</p>
+          <div class="product-meta">
+            <span class="product-price">KES 800</span>
+            <button class="add-btn">+ Cart</button>
+          </div>
         </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80" alt="Running shoes">
-            <p>Running Shoes</p><span>KES 3,200</span>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80"
+             alt="White and green running shoes">
+        <div class="product-card-body">
+          <p>Running Shoes</p>
+          <div class="product-meta">
+            <span class="product-price">KES 3,200</span>
+            <button class="add-btn">+ Cart</button>
+          </div>
         </div>
+      </div>
+
     </div>
+  </div>
 </section>
 
-<hr>
+<hr class="section-divider">
 
-<!-- TASK 3: IMAGES & VIDEO GRID — min 2 rows x 2 columns -->
-<section id="media">
-    <h2>Gallery &amp; Video</h2>
-    <p>Browse our products and watch our Kenya shopping video</p>
+<!-- =====================================================
+     GALLERY SECTION
+====================================================== -->
+<section id="gallery">
+  <div class="section" style="padding-top:70px; padding-bottom:70px;">
+    <div class="section-label">Lookbook</div>
+    <h2 class="section-title">Photo Gallery</h2>
+    <p class="section-sub">Browse some of our featured products and styles.</p>
 
-    <div class="media-grid">
-        <!-- Row 1 -->
-        <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?w=600&q=80" alt="Stylish jacket">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Gold watch">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80" alt="Colourful clothes">
-
-        <!-- Row 2 -->
-        <img src="https://images.unsplash.com/photo-1511551203524-9a24350a5771?w=600&q=80" alt="Sneakers collection">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Luxury handbag">
-        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80" alt="Running shoes">
-
-        <!-- Row 3: video spans 2 cols + 1 image -->
-        <div class="video-cell">
-            <iframe src="https://www.youtube.com/embed/yzxFV9IasGM" title="Jumia Kenya Online Shopping" allowfullscreen></iframe>
-                        <iframe src="https://www.youtube.com/embed/vhhEpby18OU" title="Kenya online shopping" allowfullscreen></iframe>
-        
-        </div>
-        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80" alt="Shopping lifestyle">
+    <div class="photo-gallery">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?w=600&q=80"
+           alt="Woman wearing a stylish jacket in a shopping street">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80"
+           alt="Close up of a gold luxury watch on a dark surface">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
+           alt="Neatly folded colourful clothes on a shelf">
+      <img src="https://images.unsplash.com/photo-1511551203524-9a24350a5771?w=600&q=80"
+           alt="Collection of sneakers arranged on a wooden floor">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
+           alt="Bride holding a luxury pearl handbag in a garden">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80"
+           alt="Person holding a Polaroid camera taking a photo">
     </div>
+  </div>
 </section>
 
-<hr>
+<hr class="section-divider">
 
-<!-- TASK 2: FULL PAGE TABLE -->
-<div class="table-section" id="table">
-    <h2>Product Price Table</h2>
-    <table>
-        <caption>🛍️ Nana Shop — Product Catalogue 2026</caption>
-        <tr>
+<!-- =====================================================
+     TABLE SECTION
+====================================================== -->
+<section id="table-section">
+  <div class="section">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Product Price Table</h2>
+    <p class="section-sub">All prices in Kenyan Shillings (KES). Updated 2026.</p>
+
+    <div class="table-wrapper">
+      <table>
+        <caption>Nana Shop — Product Catalogue 2026</caption>
+        <thead>
+          <tr>
             <th>Product</th>
             <th>Category</th>
             <th>Price (KES)</th>
             <th>Status</th>
             <th>Rating</th>
-        </tr>
-        <tr>
-            <td>Classic Sneakers</td><td>Shoes</td><td>2,500</td><td>Available</td><td>★★★★★</td>
-        </tr>
-        <tr>
-            <td>Designer Handbag</td><td>Fashion</td><td>1,800</td><td>Available</td><td>★★★★☆</td>
-        </tr>
-        <tr>
-            <td>Smart Watch</td><td>Electronics</td><td>4,500</td><td>Available</td><td>★★★★★</td>
-        </tr>
-        <tr>
-            <td>Premium Headphones</td><td>Electronics</td><td>3,000</td><td>Available</td><td>★★★★☆</td>
-        </tr>
-        <tr>
-            <td>Fashion T-Shirt</td><td>Clothing</td><td>800</td><td>Available</td><td>★★★★☆</td>
-        </tr>
-        <tr>
-            <td>Running Shoes</td><td>Shoes</td><td>3,200</td><td>Available</td><td>★★★★★</td>
-        </tr>
-    </table>
-</div>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Classic Sneakers</strong></td>
+            <td><span class="cat-pill">Shoes</span></td>
+            <td><strong>2,500</strong></td>
+            <td><span class="status-badge">Available</span></td>
+            <td><span class="stars">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td><strong>Designer Handbag</strong></td>
+            <td><span class="cat-pill">Fashion</span></td>
+            <td><strong>1,800</strong></td>
+            <td><span class="status-badge">Available</span></td>
+            <td><span class="stars">★★★★☆</span></td>
+          </tr>
+          <tr>
+            <td><strong>Smart Watch</strong></td>
+            <td><span class="cat-pill">Electronics</span></td>
+            <td><strong>4,500</strong></td>
+            <td><span class="status-badge">Available</span></td>
+            <td><span class="stars">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td><strong>Premium Headphones</strong></td>
+            <td><span class="cat-pill">Electronics</span></td>
+            <td><strong>3,000</strong></td>
+            <td><span class="status-badge">Available</span></td>
+            <td><span class="stars">★★★★☆</span></td>
+          </tr>
+          <tr>
+            <td><strong>Fashion T-Shirt</strong></td>
+            <td><span class="cat-pill">Clothing</span></td>
+            <td><strong>800</strong></td>
+            <td><span class="status-badge">Available</span></td>
+            <td><span class="stars">★★★★☆</span></td>
+          </tr>
+          <tr>
+            <td><strong>Running Shoes</strong></td>
+            <td><span class="cat-pill">Shoes</span></td>
+            <td><strong>3,200</strong></td>
+            <td><span class="status-badge">Available</span></td>
+            <td><span class="stars">★★★★★</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-<hr>
+<hr class="section-divider">
 
-<!-- AUDIO -->
+<!-- =====================================================
+     VIDEO SECTION — 2 columns × 2 rows GRID
+====================================================== -->
+<section id="media">
+  <div class="section">
+    <div class="section-label">Watch</div>
+    <h2 class="section-title">Promotional Videos</h2>
+    <p class="section-sub">Watch our store videos below — displayed in a 2-column × 2-row grid.</p>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-label">🎬 Nana Shop Promo</div>
+        <iframe src="https://www.youtube.com/embed/9No-FiEInLA"
+                title="Nana Shop Promotional Video" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <div class="video-label">👟 Sneaker Collection</div>
+        <iframe src="https://www.youtube.com/embed/9No-FiEInLA"
+                title="Sneaker Collection Video" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <div class="video-label">👜 Handbag Lookbook</div>
+        <iframe src="https://www.youtube.com/embed/9No-FiEInLA"
+                title="Handbag Lookbook Video" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <div class="video-label">⌚ Electronics Showcase</div>
+        <iframe src="https://www.youtube.com/embed/9No-FiEInLA"
+                title="Electronics Showcase Video" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- =====================================================
+     AUDIO SECTION
+====================================================== -->
 <section id="audio">
-    <h2>Card Payment Audio</h2>
-    <p>This is the sound that plays when a card payment is successful at Nana Shop.</p>
+  <div class="section">
+    <div class="section-label">Sound</div>
+    <h2 class="section-title">Card Payment Audio</h2>
+    <p class="section-sub">This is the sound that plays when a card payment is successful at Nana Shop.</p>
 
-    <div class="audio-box">
+    <div class="audio-grid">
+      <div class="audio-card">
         <h3>🎵 Payment Confirmation Sound</h3>
         <p>Use the controls below to play, pause, or adjust the volume.</p>
         <audio controls>
-            <source src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Ringtone_-_Payment_Success_2.ogg" type="audio/ogg">
-            <source src="https://www.soundjay.com/misc/sounds/cash-register-1.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+          <source src="https://www.soundjay.com/misc/sounds/cash-register-1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
         </audio>
-    </div>
-
-    <div class="audio-box">
+      </div>
+      <div class="audio-card">
         <h3>💳 Simulate a Card Payment</h3>
         <p>Click the button below to hear the card payment beep sound.</p>
         <button class="pay-btn" onclick="playPaymentSound()">💳 Pay Now</button>
-        <p id="payment-msg">✅ Payment Successful! Thank you for shopping at Nana Shop.</p>
+        <div id="payment-msg">✅ Payment Successful! Thank you for shopping at Nana Shop.</div>
+      </div>
     </div>
+  </div>
 </section>
 
-<hr>
+<hr class="section-divider">
 
-<!-- CONTACT -->
+<!-- =====================================================
+     CONTACT SECTION + ASSIGNMENT 3: JS FORM VALIDATION
+     Fields: Name, Email (with rules), Phone, Gender
+====================================================== -->
 <section id="contact">
-    <h2>Contact Us</h2>
-    <p>If you have any questions or want to place an order, reach us below.</p>
-    <p><strong>Email:</strong> nanashop@gmail.com</p>
-    <p><strong>Phone:</strong> +254 700 123 456</p>
-    <p><strong>Location:</strong> Nairobi, Kenya</p>
+  <div class="section">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-sub">If you have any questions or want to place an order, reach us below.</p>
 
-    <h3>Send Us a Message</h3>
-    <form>
-        <input type="text" placeholder="Your Full Name"><br>
-        <input type="email" placeholder="Your Email Address"><br>
-        <textarea rows="5" placeholder="Your Message..."></textarea><br>
-        <button type="submit">Send Message</button>
-    </form>
+    <div class="contact-grid">
 
-    <h3>Our Location on Map</h3>
-    <div class="map-wrapper">
-        <iframe src="https://maps.google.com/maps?q=Nairobi+CBD+Kenya&t=&z=14&ie=UTF8&iwloc=&output=embed"
-            width="700" height="350" title="Nana Shop Location in Nairobi Kenya"></iframe>
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div><strong>Email</strong><span>nanashop@gmail.com</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div><strong>Phone</strong><span>+254 700 123 456</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><strong>Location</strong><span>Nairobi, Kenya</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div><strong>Hours</strong><span>24/7 — Always Open Online</span></div>
+        </div>
+      </div>
+
+      <!-- ASSIGNMENT 3: Form with JavaScript Validation -->
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+
+        <!-- NAME -->
+        <div class="form-group">
+          <label for="fname">Full Name *</label>
+          <input type="text" id="fname"
+                 placeholder="e.g. Amina Wanjiru"
+                 oninput="validateName()">
+          <div class="field-error" id="fname-error">
+            ❌ Name must be at least 2 characters long.
+          </div>
+        </div>
+
+        <!-- EMAIL with rules -->
+        <div class="form-group">
+          <label for="femail">Email Address *</label>
+          <input type="email" id="femail"
+                 placeholder="e.g. stacey20@gmail.com"
+                 oninput="validateEmail()">
+          <div class="field-hint">Format: name@domain.com &nbsp;e.g. stacey20@gmail.com</div>
+          <div class="field-error" id="femail-error">
+            ❌ Please enter a valid email like stacey20@gmail.com
+          </div>
+        </div>
+
+        <!-- PHONE NUMBER -->
+        <div class="form-group">
+          <label for="fphone">Phone Number *</label>
+          <input type="tel" id="fphone"
+                 placeholder="e.g. 0712345678 or +254712345678"
+                 oninput="validatePhone()">
+          <div class="field-hint">Kenyan number: 07XXXXXXXX or +2547XXXXXXXX</div>
+          <div class="field-error" id="fphone-error">
+            ❌ Enter a valid Kenyan phone number e.g. 0712345678
+          </div>
+        </div>
+
+        <!-- GENDER -->
+        <div class="form-group">
+          <label>Gender *</label>
+          <div class="gender-group">
+            <label class="gender-option">
+              <input type="radio" name="gender" value="Male"> 👨 Male
+            </label>
+            <label class="gender-option">
+              <input type="radio" name="gender" value="Female"> 👩 Female
+            </label>
+            <label class="gender-option">
+              <input type="radio" name="gender" value="Other"> 🧑 Other
+            </label>
+          </div>
+          <div class="field-error" id="fgender-error">
+            ❌ Please select your gender.
+          </div>
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="form-group">
+          <label for="fmessage">Your Message</label>
+          <textarea id="fmessage" placeholder="Tell us what you need..."></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">Send Message →</button>
+
+        <div class="form-success" id="form-success">
+          🎉 Message sent successfully! We will get back to you within 24 hours.
+        </div>
+      </div>
+
     </div>
+
+    <!-- MAP -->
+    <div class="map-wrapper">
+      <iframe
+        src="https://maps.google.com/maps?q=Nairobi+CBD+Kenya&t=&z=14&ie=UTF8&iwloc=&output=embed"
+        title="Nana Shop Location in Nairobi Kenya">
+      </iframe>
+    </div>
+
+  </div>
 </section>
 
-<!-- TASK 4: AESTHETIC FOOTER -->
+<!-- =====================================================
+     FOOTER
+====================================================== -->
 <footer>
-    <p>© 2026 <span>Nana Shop</span>. All Rights Reserved. Made with ❤️ in Nairobi, Kenya.</p>
-    <p style="margin-top:8px; font-size:12px; color:#888;">Fashion · Electronics · Shoes · Accessories</p>
+  <p>&#169; 2026 <span>Nana Shop</span>. All Rights Reserved. Made with &#10084;&#65039; in <span>Nairobi, Kenya</span>.</p>
 </footer>
 
-<!-- JAVASCRIPT -->
+<!-- =====================================================
+     JAVASCRIPT
+     - Assignment 2: Welcome Popup
+     - Assignment 3: Form Validation (Name, Email, Phone, Gender)
+     - Payment Sound
+====================================================== -->
 <script>
-function playPaymentSound() {
+
+  /* ================================================
+     ASSIGNMENT 2 — WELCOME POPUP
+     Shows automatically when the page loads
+  ================================================ */
+  window.onload = function () {
+    document.getElementById('welcomePopup').style.display = 'flex';
+  };
+
+  function closePopup() {
+    var popup = document.getElementById('welcomePopup');
+    popup.style.opacity = '0';
+    popup.style.transition = 'opacity 0.3s ease';
+    setTimeout(function () {
+      popup.style.display = 'none';
+    }, 300);
+  }
+
+  // Close popup when clicking outside the box
+  document.getElementById('welcomePopup').addEventListener('click', function (e) {
+    if (e.target === this) closePopup();
+  });
+
+
+  /* ================================================
+     ASSIGNMENT 3 — FORM VALIDATION (JavaScript)
+  ================================================ */
+
+  // 1. VALIDATE NAME — must be at least 2 characters
+  function validateName() {
+    var val   = document.getElementById('fname').value.trim();
+    var input = document.getElementById('fname');
+    var err   = document.getElementById('fname-error');
+
+    if (val.length >= 2) {
+      input.className = 'valid';
+      err.style.display = 'none';
+      return true;
+    } else {
+      input.className = 'invalid';
+      err.style.display = 'block';
+      return false;
+    }
+  }
+
+  // 2. VALIDATE EMAIL — must follow name@domain.com format
+  //    e.g. stacey20@gmail.com ✅  |  stacey ❌  |  stacey@gmail ❌
+  function validateEmail() {
+    var val   = document.getElementById('femail').value.trim();
+    var input = document.getElementById('femail');
+    var err   = document.getElementById('femail-error');
+
+    // Regex checks: has text before @, has domain, has .extension (min 2 chars)
+    var emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+
+    if (emailRegex.test(val)) {
+      input.className = 'valid';
+      err.style.display = 'none';
+      return true;
+    } else {
+      input.className = 'invalid';
+      err.style.display = 'block';
+      return false;
+    }
+  }
+
+  // 3. VALIDATE PHONE — Kenyan number format
+  //    Accepts: 07XXXXXXXX or +2547XXXXXXXX
+  function validatePhone() {
+    var val   = document.getElementById('fphone').value.trim();
+    var input = document.getElementById('fphone');
+    var err   = document.getElementById('fphone-error');
+
+    var phoneRegex = /^(\+254|0)[7][0-9]{8}$/;
+
+    if (phoneRegex.test(val)) {
+      input.className = 'valid';
+      err.style.display = 'none';
+      return true;
+    } else {
+      input.className = 'invalid';
+      err.style.display = 'block';
+      return false;
+    }
+  }
+
+  // 4. VALIDATE GENDER — must select one radio button
+  function validateGender() {
+    var selected = document.querySelector('input[name="gender"]:checked');
+    var err      = document.getElementById('fgender-error');
+
+    if (selected) {
+      err.style.display = 'none';
+      return true;
+    } else {
+      err.style.display = 'block';
+      return false;
+    }
+  }
+
+  // 5. SUBMIT FORM — validate all fields first
+  function submitForm() {
+    var nameOk   = validateName();
+    var emailOk  = validateEmail();
+    var phoneOk  = validatePhone();
+    var genderOk = validateGender();
+
+    if (nameOk && emailOk && phoneOk && genderOk) {
+      var name   = document.getElementById('fname').value.trim();
+      var email  = document.getElementById('femail').value.trim();
+      var gender = document.querySelector('input[name="gender"]:checked').value;
+
+      // Success popup alert (Assignment 2 popup style)
+      alert('✅ Thank you, ' + name + '!\n\nYour message has been sent successfully.\nWe will reply to: ' + email + '\nGender: ' + gender + '\n\nThank you for shopping at Nana Shop! 🛍️');
+
+      // Show success banner
+      document.getElementById('form-success').style.display = 'block';
+
+      // Reset form after 4 seconds
+      setTimeout(function () {
+        document.getElementById('fname').value    = '';
+        document.getElementById('femail').value   = '';
+        document.getElementById('fphone').value   = '';
+        document.getElementById('fmessage').value = '';
+        document.querySelectorAll('input[name="gender"]').forEach(function (r) { r.checked = false; });
+        document.querySelectorAll('#contact .valid, #contact .invalid').forEach(function (el) { el.className = ''; });
+        document.getElementById('form-success').style.display = 'none';
+      }, 4000);
+
+    } else {
+      alert('⚠️ Please fill in all required fields correctly before submitting.');
+    }
+  }
+
+
+  /* ================================================
+     PAYMENT SOUND
+  ================================================ */
+  function playPaymentSound() {
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    var osc1 = audioCtx.createOscillator();
+
+    var osc1  = audioCtx.createOscillator();
     var gain1 = audioCtx.createGain();
-    osc1.connect(gain1); gain1.connect(audioCtx.destination);
-    osc1.type = 'sine'; osc1.frequency.value = 800;
+    osc1.connect(gain1);
+    gain1.connect(audioCtx.destination);
+    osc1.type = 'sine';
+    osc1.frequency.value = 800;
     gain1.gain.setValueAtTime(0.4, audioCtx.currentTime);
     gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
-    osc1.start(audioCtx.currentTime); osc1.stop(audioCtx.currentTime + 0.3);
+    osc1.start(audioCtx.currentTime);
+    osc1.stop(audioCtx.currentTime + 0.3);
 
-    var osc2 = audioCtx.createOscillator();
+    var osc2  = audioCtx.createOscillator();
     var gain2 = audioCtx.createGain();
-    osc2.connect(gain2); gain2.connect(audioCtx.destination);
-    osc2.type = 'sine'; osc2.frequency.value = 1100;
+    osc2.connect(gain2);
+    gain2.connect(audioCtx.destination);
+    osc2.type = 'sine';
+    osc2.frequency.value = 1100;
     gain2.gain.setValueAtTime(0.4, audioCtx.currentTime + 0.35);
     gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.65);
-    osc2.start(audioCtx.currentTime + 0.35); osc2.stop(audioCtx.currentTime + 0.65);
+    osc2.start(audioCtx.currentTime + 0.35);
+    osc2.stop(audioCtx.currentTime + 0.65);
 
     var msg = document.getElementById('payment-msg');
     msg.style.display = 'block';
-    setTimeout(function() { msg.style.display = 'none'; }, 4000);
-}
-</script>
+    setTimeout(function () { msg.style.display = 'none'; }, 4000);
+  }
 
+</script>
 </body>
 </html>
