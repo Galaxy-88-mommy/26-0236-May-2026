@@ -1,35 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nana Shop — Kenya's Online Store</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- =====================================================
-     ASSIGNMENT 2: WELCOME POPUP (JavaScript)
-====================================================== -->
+<!-- WELCOME POPUP -->
 <div class="popup-overlay" id="welcomePopup">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()">&#10005;</button>
     <div class="popup-icon">🛍️</div>
     <h2>Welcome to Nana Shop!</h2>
-    <p>
-      Your trusted online shopping store in Kenya. 🇰🇪<br><br>
+    <p>Your trusted online shopping store in Kenya. 🇰🇪<br><br>
       Discover quality sneakers, handbags, electronics &amp; more —
-      all delivered to your door in Nairobi.
-    </p>
+      all delivered to your door in Nairobi.</p>
     <button class="popup-btn" onclick="closePopup()">Start Shopping →</button>
   </div>
 </div>
 
-<!-- =====================================================
-     HEADER
-====================================================== -->
+<!-- HEADER -->
 <header>
   <div class="header-badge">🇰🇪 Nairobi, Kenya</div>
   <h1>NANA <span>SHOP</span></h1>
@@ -42,9 +36,7 @@
   </div>
 </header>
 
-<!-- =====================================================
-     NAVIGATION — Centered
-====================================================== -->
+<!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
     <a href="#home">Home</a>
@@ -59,19 +51,12 @@
   </div>
 </nav>
 
-<!-- =====================================================
-     HOME SECTION
-====================================================== -->
+<!-- HOME -->
 <section id="home">
   <div class="section">
     <div class="section-label">Welcome</div>
     <h2 class="section-title">Shop Smart. Shop Easy.</h2>
-    <p class="section-sub">
-      Affordable sneakers, handbags, smart watches, headphones &amp; clothing —
-      delivered right to your door.
-    </p>
-
-    <!-- How to Shop + What We Sell — 2-column grid -->
+    <p class="section-sub">Affordable sneakers, handbags, smart watches, headphones &amp; clothing — delivered right to your door.</p>
     <div class="how-to-shop">
       <div>
         <h3>📋 How to Shop — Ordered List (5 Items)</h3>
@@ -94,24 +79,18 @@
         </ul>
       </div>
     </div>
-
-    <!-- Featured Products — 2 Images side by side -->
     <div class="section-label">Featured Products — Two Images</div>
     <div class="featured-grid">
       <div class="featured-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80"
-             alt="Red Nike sneakers on a white background">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Red Nike sneakers">
         <div class="featured-card-info">
-          <p>Classic Sneakers</p>
-          <span class="price-tag">KES 2,500</span>
+          <p>Classic Sneakers</p><span class="price-tag">KES 2,500</span>
         </div>
       </div>
       <div class="featured-card">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
-             alt="Pink leather handbag with gold chain handle">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Pink leather handbag">
         <div class="featured-card-info">
-          <p>Designer Handbag</p>
-          <span class="price-tag">KES 1,800</span>
+          <p>Designer Handbag</p><span class="price-tag">KES 1,800</span>
         </div>
       </div>
     </div>
@@ -120,19 +99,12 @@
 
 <hr class="section-divider">
 
-<!-- =====================================================
-     ABOUT SECTION
-====================================================== -->
+<!-- ABOUT -->
 <section id="about">
   <div class="section">
     <div class="section-label">Our Story</div>
     <h2 class="section-title">About Us</h2>
-    <p class="section-sub">
-      Nana Shop is an online store based in Nairobi, Kenya. We provide affordable
-      and quality fashion and electronics. Our goal is to give every customer a
-      smooth and easy shopping experience.
-    </p>
-
+    <p class="section-sub">Nana Shop is an online store based in Nairobi, Kenya. We provide affordable and quality fashion and electronics.</p>
     <div class="about-grid">
       <div>
         <div class="about-card">
@@ -147,22 +119,14 @@
       <div>
         <div class="about-card">
           <h3>🗂️ Our Categories</h3>
-          <ul>
-            <li>Shoes</li>
-            <li>Handbags</li>
-            <li>Electronics</li>
-            <li>Clothing</li>
-            <li>Accessories</li>
-          </ul>
+          <ul><li>Shoes</li><li>Handbags</li><li>Electronics</li><li>Clothing</li><li>Accessories</li></ul>
         </div>
         <div class="about-card">
           <h3>📱 Electronics Subcategories (Nested List)</h3>
           <ul>
             <li>Gadgets
-              <ul style="padding-left:16px; margin-top:4px;">
-                <li>Smart Watches</li>
-                <li>Headphones</li>
-                <li>Phones</li>
+              <ul class="nested-list">
+                <li>Smart Watches</li><li>Headphones</li><li>Phones</li>
               </ul>
             </li>
             <li>Accessories</li>
@@ -176,187 +140,93 @@
 
 <hr class="section-divider">
 
-<!-- =====================================================
-     PRODUCTS SECTION
-====================================================== -->
+<!-- PRODUCTS -->
 <section id="products">
   <div class="section">
     <div class="section-label">Shop Now</div>
     <h2 class="section-title">Our Products</h2>
     <p class="section-sub">Click on the Smart Watch image to shop more on Jumia Kenya!</p>
-
     <div class="products-grid">
-
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80"
-             alt="Red Nike sneakers on a white background">
-        <div class="product-card-body">
-          <p>Classic Sneakers</p>
-          <div class="product-meta">
-            <span class="product-price">KES 2,500</span>
-            <button class="add-btn">+ Cart</button>
-          </div>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Classic Sneakers">
+        <div class="product-card-body"><p>Classic Sneakers</p>
+          <div class="product-meta"><span class="product-price">KES 2,500</span><button class="add-btn">+ Cart</button></div>
         </div>
       </div>
-
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
-             alt="Pink leather handbag with gold chain handle">
-        <div class="product-card-body">
-          <p>Designer Handbag</p>
-          <div class="product-meta">
-            <span class="product-price">KES 1,800</span>
-            <button class="add-btn">+ Cart</button>
-          </div>
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Designer Handbag">
+        <div class="product-card-body"><p>Designer Handbag</p>
+          <div class="product-meta"><span class="product-price">KES 1,800</span><button class="add-btn">+ Cart</button></div>
         </div>
       </div>
-
       <a href="https://www.jumia.co.ke/smart-watches/" target="_blank" class="product-card">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80"
-             alt="Gold smart watch — click to shop on Jumia">
-        <div class="product-card-body">
-          <p>Smart Watch 🔗</p>
-          <div class="product-meta">
-            <span class="product-price">KES 4,500</span>
-            <button class="add-btn">Shop →</button>
-          </div>
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Smart Watch">
+        <div class="product-card-body"><p>Smart Watch 🔗</p>
+          <div class="product-meta"><span class="product-price">KES 4,500</span><button class="add-btn">Shop →</button></div>
         </div>
       </a>
-
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80"
-             alt="Black premium headphones on yellow background">
-        <div class="product-card-body">
-          <p>Premium Headphones</p>
-          <div class="product-meta">
-            <span class="product-price">KES 3,000</span>
-            <button class="add-btn">+ Cart</button>
-          </div>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="Premium Headphones">
+        <div class="product-card-body"><p>Premium Headphones</p>
+          <div class="product-meta"><span class="product-price">KES 3,000</span><button class="add-btn">+ Cart</button></div>
         </div>
       </div>
-
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
-             alt="Folded colourful clothes on a shelf">
-        <div class="product-card-body">
-          <p>Fashion Clothing</p>
-          <div class="product-meta">
-            <span class="product-price">KES 800</span>
-            <button class="add-btn">+ Cart</button>
-          </div>
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80" alt="Fashion Clothing">
+        <div class="product-card-body"><p>Fashion Clothing</p>
+          <div class="product-meta"><span class="product-price">KES 800</span><button class="add-btn">+ Cart</button></div>
         </div>
       </div>
-
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80"
-             alt="White and green running shoes">
-        <div class="product-card-body">
-          <p>Running Shoes</p>
-          <div class="product-meta">
-            <span class="product-price">KES 3,200</span>
-            <button class="add-btn">+ Cart</button>
-          </div>
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80" alt="Running Shoes">
+        <div class="product-card-body"><p>Running Shoes</p>
+          <div class="product-meta"><span class="product-price">KES 3,200</span><button class="add-btn">+ Cart</button></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- =====================================================
-     GALLERY SECTION
-====================================================== -->
+<!-- GALLERY -->
 <section id="gallery">
-  <div class="section" style="padding-top:70px; padding-bottom:70px;">
+  <div class="section gallery-section">
     <div class="section-label">Lookbook</div>
     <h2 class="section-title">Photo Gallery</h2>
     <p class="section-sub">Browse some of our featured products and styles.</p>
-
     <div class="photo-gallery">
-      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?w=600&q=80"
-           alt="Woman wearing a stylish jacket in a shopping street">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80"
-           alt="Close up of a gold luxury watch on a dark surface">
-      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80"
-           alt="Neatly folded colourful clothes on a shelf">
-      <img src="https://images.unsplash.com/photo-1511551203524-9a24350a5771?w=600&q=80"
-           alt="Collection of sneakers arranged on a wooden floor">
-      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
-           alt="Bride holding a luxury pearl handbag in a garden">
-      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80"
-           alt="Person holding a Polaroid camera taking a photo">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?w=600&q=80" alt="Woman in stylish jacket">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Gold luxury watch">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80" alt="Colourful clothing">
+      <img src="https://images.unsplash.com/photo-1511551203524-9a24350a5771?w=600&q=80" alt="Sneakers collection">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Luxury handbag">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80" alt="Fashion photo">
     </div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- =====================================================
-     TABLE SECTION
-====================================================== -->
+<!-- PRICE TABLE -->
 <section id="table-section">
   <div class="section">
     <div class="section-label">Pricing</div>
     <h2 class="section-title">Product Price Table</h2>
     <p class="section-sub">All prices in Kenyan Shillings (KES). Updated 2026.</p>
-
     <div class="table-wrapper">
       <table>
         <caption>Nana Shop — Product Catalogue 2026</caption>
         <thead>
-          <tr>
-            <th>Product</th>
-            <th>Category</th>
-            <th>Price (KES)</th>
-            <th>Status</th>
-            <th>Rating</th>
-          </tr>
+          <tr><th>Product</th><th>Category</th><th>Price (KES)</th><th>Status</th><th>Rating</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Classic Sneakers</strong></td>
-            <td><span class="cat-pill">Shoes</span></td>
-            <td><strong>2,500</strong></td>
-            <td><span class="status-badge">Available</span></td>
-            <td><span class="stars">★★★★★</span></td>
-          </tr>
-          <tr>
-            <td><strong>Designer Handbag</strong></td>
-            <td><span class="cat-pill">Fashion</span></td>
-            <td><strong>1,800</strong></td>
-            <td><span class="status-badge">Available</span></td>
-            <td><span class="stars">★★★★☆</span></td>
-          </tr>
-          <tr>
-            <td><strong>Smart Watch</strong></td>
-            <td><span class="cat-pill">Electronics</span></td>
-            <td><strong>4,500</strong></td>
-            <td><span class="status-badge">Available</span></td>
-            <td><span class="stars">★★★★★</span></td>
-          </tr>
-          <tr>
-            <td><strong>Premium Headphones</strong></td>
-            <td><span class="cat-pill">Electronics</span></td>
-            <td><strong>3,000</strong></td>
-            <td><span class="status-badge">Available</span></td>
-            <td><span class="stars">★★★★☆</span></td>
-          </tr>
-          <tr>
-            <td><strong>Fashion T-Shirt</strong></td>
-            <td><span class="cat-pill">Clothing</span></td>
-            <td><strong>800</strong></td>
-            <td><span class="status-badge">Available</span></td>
-            <td><span class="stars">★★★★☆</span></td>
-          </tr>
-          <tr>
-            <td><strong>Running Shoes</strong></td>
-            <td><span class="cat-pill">Shoes</span></td>
-            <td><strong>3,200</strong></td>
-            <td><span class="status-badge">Available</span></td>
-            <td><span class="stars">★★★★★</span></td>
-          </tr>
+          <tr><td><strong>Classic Sneakers</strong></td><td><span class="cat-pill">Shoes</span></td><td><strong>2,500</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td><strong>Designer Handbag</strong></td><td><span class="cat-pill">Fashion</span></td><td><strong>1,800</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td><strong>Smart Watch</strong></td><td><span class="cat-pill">Electronics</span></td><td><strong>4,500</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td><strong>Premium Headphones</strong></td><td><span class="cat-pill">Electronics</span></td><td><strong>3,000</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td><strong>Fashion T-Shirt</strong></td><td><span class="cat-pill">Clothing</span></td><td><strong>800</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td><strong>Running Shoes</strong></td><td><span class="cat-pill">Shoes</span></td><td><strong>3,200</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★★</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -365,35 +235,28 @@
 
 <hr class="section-divider">
 
-<!-- =====================================================
-     VIDEO SECTION — 2 columns × 2 rows GRID
-====================================================== -->
+<!-- VIDEO -->
 <section id="media">
   <div class="section">
     <div class="section-label">Watch</div>
     <h2 class="section-title">Promotional Videos</h2>
     <p class="section-sub">Watch our store videos below — displayed in a 2-column × 2-row grid.</p>
-
     <div class="video-grid">
       <div class="video-card">
         <div class="video-label">🎬 Nana Shop Promo</div>
-           <iframe src="https://www.youtube.com/embed/3DdJ1JynG8M"
-title="Online Shopping" allowfullscreen></iframe>
-     </div>
+        <iframe src="https://www.youtube.com/embed/3DdJ1JynG8M" title="Online Shopping" allowfullscreen></iframe>
+      </div>
       <div class="video-card">
         <div class="video-label">👟 Sneaker Collection</div>
-      <iframe src="https://www.youtube.com/embed/hoV0ObF1XjE"
-title="Fashion Collection" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/hoV0ObF1XjE" title="Fashion Collection" allowfullscreen></iframe>
       </div>
       <div class="video-card">
         <div class="video-label">👜 Handbag Lookbook</div>
-        <iframe src="https://www.youtube.com/embed/99KQJzj7Dkg"
-title="Accessories Collection" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/99KQJzj7Dkg" title="Accessories Collection" allowfullscreen></iframe>
       </div>
       <div class="video-card">
-           <iframe src="https://www.youtube.com/embed/O_K5RVD_mqc"
-title="Electronics Showcase" allowfullscreen></iframe>
-           <div class="video-label">⌚ Electronics Showcase</div>
+        <div class="video-label">⌚ Electronics Showcase</div>
+        <iframe src="https://www.youtube.com/embed/O_K5RVD_mqc" title="Electronics Showcase" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -401,15 +264,12 @@ title="Electronics Showcase" allowfullscreen></iframe>
 
 <hr class="section-divider">
 
-<!-- =====================================================
-     AUDIO SECTION
-====================================================== -->
+<!-- AUDIO -->
 <section id="audio">
   <div class="section">
     <div class="section-label">Sound</div>
     <h2 class="section-title">Card Payment Audio</h2>
     <p class="section-sub">This is the sound that plays when a card payment is successful at Nana Shop.</p>
-
     <div class="audio-grid">
       <div class="audio-card">
         <h3>🎵 Payment Confirmation Sound</h3>
@@ -431,19 +291,13 @@ title="Electronics Showcase" allowfullscreen></iframe>
 
 <hr class="section-divider">
 
-<!-- =====================================================
-     CONTACT SECTION + ASSIGNMENT 3: JS FORM VALIDATION
-     Fields: Name, Email (with rules), Phone, Gender
-====================================================== -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="section">
     <div class="section-label">Get In Touch</div>
     <h2 class="section-title">Contact Us</h2>
     <p class="section-sub">If you have any questions or want to place an order, reach us below.</p>
-
     <div class="contact-grid">
-
-      <!-- Contact Info -->
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-icon">📧</div>
@@ -462,273 +316,54 @@ title="Electronics Showcase" allowfullscreen></iframe>
           <div><strong>Hours</strong><span>24/7 — Always Open Online</span></div>
         </div>
       </div>
-
-      <!-- ASSIGNMENT 3: Form with JavaScript Validation -->
       <div class="contact-form">
         <h3>Send Us a Message</h3>
-
-        <!-- NAME -->
         <div class="form-group">
           <label for="fname">Full Name *</label>
-          <input type="text" id="fname"
-                 placeholder="e.g. Amina Wanjiru"
-                 oninput="validateName()">
-          <div class="field-error" id="fname-error">
-            ❌ Name must be at least 2 characters long.
-          </div>
+          <input type="text" id="fname" placeholder="e.g. Amina Wanjiru" oninput="validateName()">
+          <div class="field-error" id="fname-error">❌ Name must be at least 2 characters long.</div>
         </div>
-
-        <!-- EMAIL with rules -->
         <div class="form-group">
           <label for="femail">Email Address *</label>
-          <input type="email" id="femail"
-                 placeholder="e.g. stacey20@gmail.com"
-                 oninput="validateEmail()">
+          <input type="email" id="femail" placeholder="e.g. stacey20@gmail.com" oninput="validateEmail()">
           <div class="field-hint">Format: name@domain.com &nbsp;e.g. stacey20@gmail.com</div>
-          <div class="field-error" id="femail-error">
-            ❌ Please enter a valid email like stacey20@gmail.com
-          </div>
+          <div class="field-error" id="femail-error">❌ Please enter a valid email like stacey20@gmail.com</div>
         </div>
-
-        <!-- PHONE NUMBER -->
         <div class="form-group">
           <label for="fphone">Phone Number *</label>
-          <input type="tel" id="fphone"
-                 placeholder="e.g. 0712345678 or +254712345678"
-                 oninput="validatePhone()">
+          <input type="tel" id="fphone" placeholder="e.g. 0712345678 or +254712345678" oninput="validatePhone()">
           <div class="field-hint">Kenyan number: 07XXXXXXXX or +2547XXXXXXXX</div>
-          <div class="field-error" id="fphone-error">
-            ❌ Enter a valid Kenyan phone number e.g. 0712345678
-          </div>
+          <div class="field-error" id="fphone-error">❌ Enter a valid Kenyan phone number e.g. 0712345678</div>
         </div>
-
-        <!-- GENDER -->
         <div class="form-group">
           <label>Gender *</label>
           <div class="gender-group">
-            <label class="gender-option">
-              <input type="radio" name="gender" value="Male"> 👨 Male
-            </label>
-            <label class="gender-option">
-              <input type="radio" name="gender" value="Female"> 👩 Female
-            </label>
-            <label class="gender-option">
-              <input type="radio" name="gender" value="Other"> 🧑 Other
-            </label>
+            <label class="gender-option"><input type="radio" name="gender" value="Male"> 👨 Male</label>
+            <label class="gender-option"><input type="radio" name="gender" value="Female"> 👩 Female</label>
+            <label class="gender-option"><input type="radio" name="gender" value="Other"> 🧑 Other</label>
           </div>
-          <div class="field-error" id="fgender-error">
-            ❌ Please select your gender.
-          </div>
+          <div class="field-error" id="fgender-error">❌ Please select your gender.</div>
         </div>
-
-        <!-- MESSAGE -->
         <div class="form-group">
           <label for="fmessage">Your Message</label>
           <textarea id="fmessage" placeholder="Tell us what you need..."></textarea>
         </div>
-
         <button class="submit-btn" onclick="submitForm()">Send Message →</button>
-
-        <div class="form-success" id="form-success">
-          🎉 Message sent successfully! We will get back to you within 24 hours.
-        </div>
+        <div class="form-success" id="form-success">🎉 Message sent successfully! We will get back to you within 24 hours.</div>
       </div>
-
     </div>
-
-    <!-- MAP -->
     <div class="map-wrapper">
-      <iframe
-        src="https://maps.google.com/maps?q=Nairobi+CBD+Kenya&t=&z=14&ie=UTF8&iwloc=&output=embed"
-        title="Nana Shop Location in Nairobi Kenya">
-      </iframe>
+      <iframe src="https://maps.google.com/maps?q=Nairobi+CBD+Kenya&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              title="Nana Shop Location in Nairobi Kenya"></iframe>
     </div>
-
   </div>
 </section>
 
-<!-- =====================================================
-     FOOTER
-====================================================== -->
+<!-- FOOTER -->
 <footer>
   <p>&#169; 2026 <span>Nana Shop</span>. All Rights Reserved. Made with &#10084;&#65039; in <span>Nairobi, Kenya</span>.</p>
 </footer>
 
-<!-- =====================================================
-     JAVASCRIPT
-     - Assignment 2: Welcome Popup
-     - Assignment 3: Form Validation (Name, Email, Phone, Gender)
-     - Payment Sound
-====================================================== -->
-<script>
-
-  /* ================================================
-     ASSIGNMENT 2 — WELCOME POPUP
-     Shows automatically when the page loads
-  ================================================ */
-  window.onload = function () {
-    document.getElementById('welcomePopup').style.display = 'flex';
-  };
-
-  function closePopup() {
-    var popup = document.getElementById('welcomePopup');
-    popup.style.opacity = '0';
-    popup.style.transition = 'opacity 0.3s ease';
-    setTimeout(function () {
-      popup.style.display = 'none';
-    }, 300);
-  }
-
-  // Close popup when clicking outside the box
-  document.getElementById('welcomePopup').addEventListener('click', function (e) {
-    if (e.target === this) closePopup();
-  });
-
-
-  /* ================================================
-     ASSIGNMENT 3 — FORM VALIDATION (JavaScript)
-  ================================================ */
-
-  // 1. VALIDATE NAME — must be at least 2 characters
-  function validateName() {
-    var val   = document.getElementById('fname').value.trim();
-    var input = document.getElementById('fname');
-    var err   = document.getElementById('fname-error');
-
-    if (val.length >= 2) {
-      input.className = 'valid';
-      err.style.display = 'none';
-      return true;
-    } else {
-      input.className = 'invalid';
-      err.style.display = 'block';
-      return false;
-    }
-  }
-
-  // 2. VALIDATE EMAIL — must follow name@domain.com format
-  //    e.g. stacey20@gmail.com ✅  |  stacey ❌  |  stacey@gmail ❌
-  function validateEmail() {
-    var val   = document.getElementById('femail').value.trim();
-    var input = document.getElementById('femail');
-    var err   = document.getElementById('femail-error');
-
-    // Regex checks: has text before @, has domain, has .extension (min 2 chars)
-    var emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
-
-    if (emailRegex.test(val)) {
-      input.className = 'valid';
-      err.style.display = 'none';
-      return true;
-    } else {
-      input.className = 'invalid';
-      err.style.display = 'block';
-      return false;
-    }
-  }
-
-  // 3. VALIDATE PHONE — Kenyan number format
-  //    Accepts: 07XXXXXXXX or +2547XXXXXXXX
-  function validatePhone() {
-    var val   = document.getElementById('fphone').value.trim();
-    var input = document.getElementById('fphone');
-    var err   = document.getElementById('fphone-error');
-
-    var phoneRegex = /^(\+254|0)[7][0-9]{8}$/;
-
-    if (phoneRegex.test(val)) {
-      input.className = 'valid';
-      err.style.display = 'none';
-      return true;
-    } else {
-      input.className = 'invalid';
-      err.style.display = 'block';
-      return false;
-    }
-  }
-
-  // 4. VALIDATE GENDER — must select one radio button
-  function validateGender() {
-    var selected = document.querySelector('input[name="gender"]:checked');
-    var err      = document.getElementById('fgender-error');
-
-    if (selected) {
-      err.style.display = 'none';
-      return true;
-    } else {
-      err.style.display = 'block';
-      return false;
-    }
-  }
-
-  // 5. SUBMIT FORM — validate all fields first
-  function submitForm() {
-    var nameOk   = validateName();
-    var emailOk  = validateEmail();
-    var phoneOk  = validatePhone();
-    var genderOk = validateGender();
-
-    if (nameOk && emailOk && phoneOk && genderOk) {
-      var name   = document.getElementById('fname').value.trim();
-      var email  = document.getElementById('femail').value.trim();
-      var gender = document.querySelector('input[name="gender"]:checked').value;
-
-      // Success popup alert (Assignment 2 popup style)
-      alert('✅ Thank you, ' + name + '!\n\nYour message has been sent successfully.\nWe will reply to: ' + email + '\nGender: ' + gender + '\n\nThank you for shopping at Nana Shop! 🛍️');
-
-      // Show success banner
-      document.getElementById('form-success').style.display = 'block';
-
-      // Reset form after 4 seconds
-      setTimeout(function () {
-        document.getElementById('fname').value    = '';
-        document.getElementById('femail').value   = '';
-        document.getElementById('fphone').value   = '';
-        document.getElementById('fmessage').value = '';
-        document.querySelectorAll('input[name="gender"]').forEach(function (r) { r.checked = false; });
-        document.querySelectorAll('#contact .valid, #contact .invalid').forEach(function (el) { el.className = ''; });
-        document.getElementById('form-success').style.display = 'none';
-      }, 4000);
-
-    } else {
-      alert('⚠️ Please fill in all required fields correctly before submitting.');
-    }
-  }
-
-
-  /* ================================================
-     PAYMENT SOUND
-  ================================================ */
-  function playPaymentSound() {
-    var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-    var osc1  = audioCtx.createOscillator();
-    var gain1 = audioCtx.createGain();
-    osc1.connect(gain1);
-    gain1.connect(audioCtx.destination);
-    osc1.type = 'sine';
-    osc1.frequency.value = 800;
-    gain1.gain.setValueAtTime(0.4, audioCtx.currentTime);
-    gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
-    osc1.start(audioCtx.currentTime);
-    osc1.stop(audioCtx.currentTime + 0.3);
-
-    var osc2  = audioCtx.createOscillator();
-    var gain2 = audioCtx.createGain();
-    osc2.connect(gain2);
-    gain2.connect(audioCtx.destination);
-    osc2.type = 'sine';
-    osc2.frequency.value = 1100;
-    gain2.gain.setValueAtTime(0.4, audioCtx.currentTime + 0.35);
-    gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.65);
-    osc2.start(audioCtx.currentTime + 0.35);
-    osc2.stop(audioCtx.currentTime + 0.65);
-
-    var msg = document.getElementById('payment-msg');
-    msg.style.display = 'block';
-    setTimeout(function () { msg.style.display = 'none'; }, 4000);
-  }
-
-</script>
+<script src="script.js"></script>
 </body>
 </html>
