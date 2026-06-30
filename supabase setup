@@ -1,0 +1,26 @@
+-- Run this in Supabase: Dashboard → SQL Editor → New Query
+
+create table if not exists messages (
+  id bigint generated always as identity primary key,
+  full_name text not null,
+  email text not null,
+  phone text not null,
+  gender text not null,
+  message text,
+  created_at timestamp with time zone default now()
+);
+
+-- Enable Row Level Security
+alter table messages enable row level security;
+
+-- Allow anyone to insert (so your public contact form can submit)
+create policy "Allow public insert"
+  on messages for insert
+  to anon
+  with check (true);
+
+-- Allow anyone to read (so view.html can fetch and display)
+create policy "Allow public read"
+  on messages for select
+  to anon
+  using (true);
