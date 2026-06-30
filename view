@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nana Shop - Submitted Messages</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#f4f4f4; padding:40px; }
+  .wrap { max-width:900px; margin:auto; background:#fff; padding:30px;
+          border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  table { width:100%; border-collapse:collapse; margin-top:20px; }
+  th, td { padding:10px; border:1px solid #ddd; text-align:left; font-size:14px; }
+  th { background:#1a7a4c; color:#fff; }
+  tr:nth-child(even) { background:#f9f9f9; }
+  a.back { display:inline-block; margin-top:20px; color:#1a7a4c; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <h2>📋 Nana Shop — Submitted Messages</h2>
+  <p>Total messages: <strong id="count">loading...</strong></p>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Gender</th><th>Message</th><th>Submitted</th></tr>
+    </thead>
+    <tbody id="rows">
+      <tr><td colspan="7">Loading messages...</td></tr>
+    </tbody>
+  </table>
+
+  <a class="back" href="index.html">← Back to Form</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const supabaseUrl = "https://olyeeylqjchaspkzcrip.supabase.co";
+  const supabaseKey = "sb_publishable_IAayct83nZ-RcUeS7IDUQQ_WF_nVdEc";
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+  async function loadMessages() {
+    const { data, error } = await supabase
+      .from('messages')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    const tbody = document.getElementById('rows');
+    const count = document.getElementById('count');
+
+    if (error) {
+      tbody.innerHTML = '<tr><td colspan="7">❌ Error loading messages.</td></tr>';
+      console.error(error);
+      return;
+    }
+
+    count.textContent = data.length;
+
+    if (data.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7">No messages yet.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = data.map(row => `
+      <tr>
+        <td>${row.id}</td>
+        <td>${row.full_name}</td>
+        <td>${row.email}</td>
+        <td>${row.phone}</td>
+        <td>${row.gender}</td>
+        <td>${row.message ?? ''}</td>
+        <td>${new Date(row.created_at).toLocaleString()}</td>
+      </tr>
+    `).join('');
+  }
+
+  loadMessages();
+</script>
+
+</body>
+</html>
