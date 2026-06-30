@@ -1,7 +1,6 @@
 const supabaseUrl = "https://olyeeylqjchaspkzcrip.supabase.co";
 const supabaseKey = "sb_publishable_IAayct83nZ-RcUeS7IDUQQ_WF_nVdEc";
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
 /* WELCOME POPUP */
 window.onload = function () {
   document.getElementById('welcomePopup').style.display = 'flex';
@@ -54,55 +53,27 @@ function validateGender() {
   else { err.style.display = 'block'; return false; }
 }
 
-/* SUBMIT FORM -> INSERT INTO SUPABASE */
-async function submitForm() {
+function submitForm() {
   var nameOk = validateName(), emailOk = validateEmail(),
       phoneOk = validatePhone(), genderOk = validateGender();
-
-  if (!(nameOk && emailOk && phoneOk && genderOk)) {
+  if (nameOk && emailOk && phoneOk && genderOk) {
+    var name   = document.getElementById('fname').value.trim();
+    var email  = document.getElementById('femail').value.trim();
+    var gender = document.querySelector('input[name="gender"]:checked').value;
+    alert('✅ Thank you, ' + name + '!\n\nYour message has been sent successfully.\nWe will reply to: ' + email + '\nGender: ' + gender + '\n\nThank you for shopping at Nana Shop! 🛍️');
+    document.getElementById('form-success').style.display = 'block';
+    setTimeout(function () {
+      document.getElementById('fname').value = '';
+      document.getElementById('femail').value = '';
+      document.getElementById('fphone').value = '';
+      document.getElementById('fmessage').value = '';
+      document.querySelectorAll('input[name="gender"]').forEach(function (r) { r.checked = false; });
+      document.querySelectorAll('#contact .valid, #contact .invalid').forEach(function (el) { el.className = ''; });
+      document.getElementById('form-success').style.display = 'none';
+    }, 4000);
+  } else {
     alert('⚠️ Please fill in all required fields correctly before submitting.');
-    return;
   }
-
-  var name    = document.getElementById('fname').value.trim();
-  var email   = document.getElementById('femail').value.trim();
-  var phone   = document.getElementById('fphone').value.trim();
-  var gender  = document.querySelector('input[name="gender"]:checked').value;
-  var message = document.getElementById('fmessage').value.trim();
-
-  var submitBtn = document.querySelector('.submit-btn');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending...';
-
-  const { data, error } = await supabase
-    .from('messages')
-    .insert([{
-      full_name: name,
-      email: email,
-      phone: phone,
-      gender: gender,
-      message: message
-    }]);
-
-  submitBtn.disabled = false;
-  submitBtn.textContent = 'Send Message →';
-
-  if (error) {
-    console.error(error);
-    alert('❌ Something went wrong sending your message. Please try again.');
-    return;
-  }
-
-  document.getElementById('form-success').style.display = 'block';
-  setTimeout(function () {
-    document.getElementById('fname').value = '';
-    document.getElementById('femail').value = '';
-    document.getElementById('fphone').value = '';
-    document.getElementById('fmessage').value = '';
-    document.querySelectorAll('input[name="gender"]').forEach(function (r) { r.checked = false; });
-    document.querySelectorAll('#contact .valid, #contact .invalid').forEach(function (el) { el.className = ''; });
-    document.getElementById('form-success').style.display = 'none';
-  }, 4000);
 }
 
 
