@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nana Shop — Kenya's Online Store</title>
-
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Supabase CDN — loads the database library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -17,8 +19,7 @@
     <div class="popup-icon">🛍️</div>
     <h2>Welcome to Nana Shop!</h2>
     <p>Your trusted online shopping store in Kenya. 🇰🇪<br><br>
-      Discover quality sneakers, handbags, electronics &amp; more —
-      all delivered to your door in Nairobi.</p>
+      Discover quality sneakers, handbags, electronics &amp; more — all delivered to your door in Nairobi.</p>
     <button class="popup-btn" onclick="closePopup()">Start Shopping →</button>
   </div>
 </div>
@@ -47,6 +48,7 @@
     <a href="#media">Video</a>
     <a href="#audio">Audio</a>
     <a href="#contact">Contact</a>
+    <a href="#messages">Messages DB</a>
     <a href="https://www.jumia.co.ke" target="_blank" class="external">Jumia Kenya 🔗</a>
   </div>
 </nav>
@@ -83,15 +85,11 @@
     <div class="featured-grid">
       <div class="featured-card">
         <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Red Nike sneakers">
-        <div class="featured-card-info">
-          <p>Classic Sneakers</p><span class="price-tag">KES 2,500</span>
-        </div>
+        <div class="featured-card-info"><p>Classic Sneakers</p><span class="price-tag">KES 2,500</span></div>
       </div>
       <div class="featured-card">
         <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Pink leather handbag">
-        <div class="featured-card-info">
-          <p>Designer Handbag</p><span class="price-tag">KES 1,800</span>
-        </div>
+        <div class="featured-card-info"><p>Designer Handbag</p><span class="price-tag">KES 1,800</span></div>
       </div>
     </div>
   </div>
@@ -104,17 +102,11 @@
   <div class="section">
     <div class="section-label">Our Story</div>
     <h2 class="section-title">About Us</h2>
-    <p class="section-sub">Nana Shop is an online store based in Nairobi, Kenya. We provide affordable and quality fashion and electronics.</p>
+    <p class="section-sub">Nana Shop is an online store based in Nairobi, Kenya.</p>
     <div class="about-grid">
       <div>
-        <div class="about-card">
-          <h3>🎯 Our Mission</h3>
-          <p>To make online shopping easy and affordable for every Kenyan.</p>
-        </div>
-        <div class="about-card">
-          <h3>🌍 Our Vision</h3>
-          <p>To become the leading online store in Kenya.</p>
-        </div>
+        <div class="about-card"><h3>🎯 Our Mission</h3><p>To make online shopping easy and affordable for every Kenyan.</p></div>
+        <div class="about-card"><h3>🌍 Our Vision</h3><p>To become the leading online store in Kenya.</p></div>
       </div>
       <div>
         <div class="about-card">
@@ -124,13 +116,8 @@
         <div class="about-card">
           <h3>📱 Electronics Subcategories (Nested List)</h3>
           <ul>
-            <li>Gadgets
-              <ul class="nested-list">
-                <li>Smart Watches</li><li>Headphones</li><li>Phones</li>
-              </ul>
-            </li>
-            <li>Accessories</li>
-            <li>Cables and Chargers</li>
+            <li>Gadgets<ul class="nested-list"><li>Smart Watches</li><li>Headphones</li><li>Phones</li></ul></li>
+            <li>Accessories</li><li>Cables and Chargers</li>
           </ul>
         </div>
       </div>
@@ -147,42 +134,12 @@
     <h2 class="section-title">Our Products</h2>
     <p class="section-sub">Click on the Smart Watch image to shop more on Jumia Kenya!</p>
     <div class="products-grid">
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Classic Sneakers">
-        <div class="product-card-body"><p>Classic Sneakers</p>
-          <div class="product-meta"><span class="product-price">KES 2,500</span><button class="add-btn">+ Cart</button></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Designer Handbag">
-        <div class="product-card-body"><p>Designer Handbag</p>
-          <div class="product-meta"><span class="product-price">KES 1,800</span><button class="add-btn">+ Cart</button></div>
-        </div>
-      </div>
-      <a href="https://www.jumia.co.ke/smart-watches/" target="_blank" class="product-card">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Smart Watch">
-        <div class="product-card-body"><p>Smart Watch 🔗</p>
-          <div class="product-meta"><span class="product-price">KES 4,500</span><button class="add-btn">Shop →</button></div>
-        </div>
-      </a>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="Premium Headphones">
-        <div class="product-card-body"><p>Premium Headphones</p>
-          <div class="product-meta"><span class="product-price">KES 3,000</span><button class="add-btn">+ Cart</button></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80" alt="Fashion Clothing">
-        <div class="product-card-body"><p>Fashion Clothing</p>
-          <div class="product-meta"><span class="product-price">KES 800</span><button class="add-btn">+ Cart</button></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80" alt="Running Shoes">
-        <div class="product-card-body"><p>Running Shoes</p>
-          <div class="product-meta"><span class="product-price">KES 3,200</span><button class="add-btn">+ Cart</button></div>
-        </div>
-      </div>
+      <div class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Classic Sneakers"><div class="product-card-body"><p>Classic Sneakers</p><div class="product-meta"><span class="product-price">KES 2,500</span><button class="add-btn">+ Cart</button></div></div></div>
+      <div class="product-card"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Designer Handbag"><div class="product-card-body"><p>Designer Handbag</p><div class="product-meta"><span class="product-price">KES 1,800</span><button class="add-btn">+ Cart</button></div></div></div>
+      <a href="https://www.jumia.co.ke/smart-watches/" target="_blank" class="product-card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Smart Watch"><div class="product-card-body"><p>Smart Watch 🔗</p><div class="product-meta"><span class="product-price">KES 4,500</span><button class="add-btn">Shop →</button></div></div></a>
+      <div class="product-card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="Premium Headphones"><div class="product-card-body"><p>Premium Headphones</p><div class="product-meta"><span class="product-price">KES 3,000</span><button class="add-btn">+ Cart</button></div></div></div>
+      <div class="product-card"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80" alt="Fashion Clothing"><div class="product-card-body"><p>Fashion Clothing</p><div class="product-meta"><span class="product-price">KES 800</span><button class="add-btn">+ Cart</button></div></div></div>
+      <div class="product-card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80" alt="Running Shoes"><div class="product-card-body"><p>Running Shoes</p><div class="product-meta"><span class="product-price">KES 3,200</span><button class="add-btn">+ Cart</button></div></div></div>
     </div>
   </div>
 </section>
@@ -217,9 +174,7 @@
     <div class="table-wrapper">
       <table>
         <caption>Nana Shop — Product Catalogue 2026</caption>
-        <thead>
-          <tr><th>Product</th><th>Category</th><th>Price (KES)</th><th>Status</th><th>Rating</th></tr>
-        </thead>
+        <thead><tr><th>Product</th><th>Category</th><th>Price (KES)</th><th>Status</th><th>Rating</th></tr></thead>
         <tbody>
           <tr><td><strong>Classic Sneakers</strong></td><td><span class="cat-pill">Shoes</span></td><td><strong>2,500</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★★</span></td></tr>
           <tr><td><strong>Designer Handbag</strong></td><td><span class="cat-pill">Fashion</span></td><td><strong>1,800</strong></td><td><span class="status-badge">Available</span></td><td><span class="stars">★★★★☆</span></td></tr>
@@ -240,24 +195,12 @@
   <div class="section">
     <div class="section-label">Watch</div>
     <h2 class="section-title">Promotional Videos</h2>
-    <p class="section-sub">Watch our store videos below — displayed in a 2-column × 2-row grid.</p>
+    <p class="section-sub">Watch our store videos — 2-column × 2-row grid.</p>
     <div class="video-grid">
-      <div class="video-card">
-        <div class="video-label">🎬 Nana Shop Promo</div>
-        <iframe src="https://www.youtube.com/embed/3DdJ1JynG8M" title="Online Shopping" allowfullscreen></iframe>
-      </div>
-      <div class="video-card">
-        <div class="video-label">👟 Sneaker Collection</div>
-        <iframe src="https://www.youtube.com/embed/hoV0ObF1XjE" title="Fashion Collection" allowfullscreen></iframe>
-      </div>
-      <div class="video-card">
-        <div class="video-label">👜 Handbag Lookbook</div>
-        <iframe src="https://www.youtube.com/embed/99KQJzj7Dkg" title="Accessories Collection" allowfullscreen></iframe>
-      </div>
-      <div class="video-card">
-        <div class="video-label">⌚ Electronics Showcase</div>
-        <iframe src="https://www.youtube.com/embed/O_K5RVD_mqc" title="Electronics Showcase" allowfullscreen></iframe>
-      </div>
+      <div class="video-card"><div class="video-label">🎬 Nana Shop Promo</div><iframe src="https://www.youtube.com/embed/3DdJ1JynG8M" title="Online Shopping" allowfullscreen></iframe></div>
+      <div class="video-card"><div class="video-label">👟 Sneaker Collection</div><iframe src="https://www.youtube.com/embed/hoV0ObF1XjE" title="Fashion Collection" allowfullscreen></iframe></div>
+      <div class="video-card"><div class="video-label">👜 Handbag Lookbook</div><iframe src="https://www.youtube.com/embed/99KQJzj7Dkg" title="Accessories Collection" allowfullscreen></iframe></div>
+      <div class="video-card"><div class="video-label">⌚ Electronics Showcase</div><iframe src="https://www.youtube.com/embed/O_K5RVD_mqc" title="Electronics Showcase" allowfullscreen></iframe></div>
     </div>
   </div>
 </section>
@@ -269,19 +212,16 @@
   <div class="section">
     <div class="section-label">Sound</div>
     <h2 class="section-title">Card Payment Audio</h2>
-    <p class="section-sub">This is the sound that plays when a card payment is successful at Nana Shop.</p>
+    <p class="section-sub">This is the sound that plays when a card payment is successful.</p>
     <div class="audio-grid">
       <div class="audio-card">
         <h3>🎵 Payment Confirmation Sound</h3>
-        <p>Use the controls below to play, pause, or adjust the volume.</p>
-        <audio controls>
-          <source src="https://www.soundjay.com/misc/sounds/cash-register-1.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+        <p>Use the controls to play or pause.</p>
+        <audio controls><source src="https://www.soundjay.com/misc/sounds/cash-register-1.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
       </div>
       <div class="audio-card">
         <h3>💳 Simulate a Card Payment</h3>
-        <p>Click the button below to hear the card payment beep sound.</p>
+        <p>Click the button to hear the beep.</p>
         <button class="pay-btn" onclick="playPaymentSound()">💳 Pay Now</button>
         <div id="payment-msg">✅ Payment Successful! Thank you for shopping at Nana Shop.</div>
       </div>
@@ -291,49 +231,37 @@
 
 <hr class="section-divider">
 
-<!-- CONTACT -->
+<!-- CONTACT — saves to Supabase -->
 <section id="contact">
   <div class="section">
     <div class="section-label">Get In Touch</div>
     <h2 class="section-title">Contact Us</h2>
-    <p class="section-sub">If you have any questions or want to place an order, reach us below.</p>
+    <p class="section-sub">Fill the form below — your message is saved to the Supabase database.</p>
     <div class="contact-grid">
       <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div><strong>Email</strong><span>nanashop@gmail.com</span></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <div><strong>Phone</strong><span>+254 700 123 456</span></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div><strong>Location</strong><span>Nairobi, Kenya</span></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">🕐</div>
-          <div><strong>Hours</strong><span>24/7 — Always Open Online</span></div>
-        </div>
+        <div class="contact-item"><div class="contact-icon">📧</div><div><strong>Email</strong><span>nanashop@gmail.com</span></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><strong>Phone</strong><span>+254 700 123 456</span></div></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><strong>Location</strong><span>Nairobi, Kenya</span></div></div>
+        <div class="contact-item"><div class="contact-icon">🕐</div><div><strong>Hours</strong><span>24/7 — Always Open Online</span></div></div>
       </div>
       <div class="contact-form">
         <h3>Send Us a Message</h3>
         <div class="form-group">
           <label for="fname">Full Name *</label>
           <input type="text" id="fname" placeholder="e.g. Amina Wanjiru" oninput="validateName()">
-          <div class="field-error" id="fname-error">❌ Name must be at least 2 characters long.</div>
+          <div class="field-error" id="fname-error">❌ Name must be at least 2 characters.</div>
         </div>
         <div class="form-group">
           <label for="femail">Email Address *</label>
           <input type="email" id="femail" placeholder="e.g. stacey20@gmail.com" oninput="validateEmail()">
-          <div class="field-hint">Format: name@domain.com &nbsp;e.g. stacey20@gmail.com</div>
-          <div class="field-error" id="femail-error">❌ Please enter a valid email like stacey20@gmail.com</div>
+          <div class="field-hint">Format: name@domain.com</div>
+          <div class="field-error" id="femail-error">❌ Please enter a valid email.</div>
         </div>
         <div class="form-group">
           <label for="fphone">Phone Number *</label>
-          <input type="tel" id="fphone" placeholder="e.g. 0712345678 or +254712345678" oninput="validatePhone()">
-          <div class="field-hint">Kenyan number: 07XXXXXXXX or +2547XXXXXXXX</div>
-          <div class="field-error" id="fphone-error">❌ Enter a valid Kenyan phone number e.g. 0712345678</div>
+          <input type="tel" id="fphone" placeholder="e.g. 0712345678" oninput="validatePhone()">
+          <div class="field-hint">Kenyan: 07XXXXXXXX or +2547XXXXXXXX</div>
+          <div class="field-error" id="fphone-error">❌ Enter a valid Kenyan phone number.</div>
         </div>
         <div class="form-group">
           <label>Gender *</label>
@@ -349,12 +277,36 @@
           <textarea id="fmessage" placeholder="Tell us what you need..."></textarea>
         </div>
         <button class="submit-btn" onclick="submitForm()">Send Message →</button>
-        <div class="form-success" id="form-success">🎉 Message sent successfully! We will get back to you within 24 hours.</div>
+        <div class="form-success" id="form-success">🎉 Saved to Supabase database!</div>
       </div>
     </div>
     <div class="map-wrapper">
-      <iframe src="https://maps.google.com/maps?q=Nairobi+CBD+Kenya&t=&z=14&ie=UTF8&iwloc=&output=embed"
-              title="Nana Shop Location in Nairobi Kenya"></iframe>
+      <iframe src="https://maps.google.com/maps?q=Nairobi+CBD+Kenya&t=&z=14&ie=UTF8&iwloc=&output=embed" title="Nana Shop Location"></iframe>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- MESSAGES — fetched from Supabase -->
+<section id="messages">
+  <div class="section">
+    <div class="section-label">Supabase Database</div>
+    <h2 class="section-title">Messages From Database</h2>
+    <p class="section-sub">
+      Total records: <strong id="messages-count">—</strong>
+      <button class="refresh-btn" onclick="loadMessages()">🔄 Refresh</button>
+    </p>
+    <div class="table-wrapper">
+      <table>
+        <caption>Fetched live from Supabase (PostgreSQL)</caption>
+        <thead>
+          <tr><th>ID</th><th>Full Name</th><th>Email</th><th>Phone</th><th>Gender</th><th>Date &amp; Time</th></tr>
+        </thead>
+        <tbody id="messages-table-body">
+          <tr><td colspan="6" style="text-align:center;padding:1.5rem;">Loading…</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -363,7 +315,7 @@
 <footer>
   <p>&#169; 2026 <span>Nana Shop</span>. All Rights Reserved. Made with &#10084;&#65039; in <span>Nairobi, Kenya</span>.</p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="script.js"></script>
 </body>
 </html>
