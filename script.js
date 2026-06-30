@@ -1,10 +1,20 @@
+/* ================================================
+   SUPABASE CONFIG
+   Paste your Project URL and anon key below
+================================================ */
+const SUPABASE_URL = 'https://olyeeylqjchaspkzcrip.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_IAayct83nZ-RcUeS7IDUQQ_WF_nVdEc';
 
-const supabaseUrl = "https://olyeeylqjchaspkzcrip.supabase.co";
-const supabaseKey = "sb_publishable_IAayct83nZ-RcUeS7IDUQQ_WF_nVdEc";
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-/* WELCOME POPUP */
+const { createClient } = supabase;
+const db = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
+/* ================================================
+   WELCOME POPUP
+================================================ */
 window.onload = function () {
   document.getElementById('welcomePopup').style.display = 'flex';
+  loadMessages();
 };
 
 function closePopup() {
@@ -13,14 +23,14 @@ function closePopup() {
   popup.style.transition = 'opacity 0.3s ease';
   setTimeout(function () { popup.style.display = 'none'; }, 300);
 }
-
 document.getElementById('welcomePopup').addEventListener('click', function (e) {
   if (e.target === this) closePopup();
 });
 
 
-/* FORM VALIDATION */
-
+/* ================================================
+   FORM VALIDATION
+================================================ */
 function validateName() {
   var val = document.getElementById('fname').value.trim();
   var input = document.getElementById('fname');
@@ -54,31 +64,114 @@ function validateGender() {
   else { err.style.display = 'block'; return false; }
 }
 
-function submitForm() {
+
+/* ================================================
+   SUBMIT FORM — INSERT into Supabase
+================================================ */
+async function submitForm() {
   var nameOk = validateName(), emailOk = validateEmail(),
       phoneOk = validatePhone(), genderOk = validateGender();
-  if (nameOk && emailOk && phoneOk && genderOk) {
-    var name   = document.getElementById('fname').value.trim();
-    var email  = document.getElementById('femail').value.trim();
-    var gender = document.querySelector('input[name="gender"]:checked').value;
-    alert('✅ Thank you, ' + name + '!\n\nYour message has been sent successfully.\nWe will reply to: ' + email + '\nGender: ' + gender + '\n\nThank you for shopping at Nana Shop! 🛍️');
+
+  if (!nameOk || !emailOk || !phoneOk || !genderOk) {
+    alert('⚠️ Please fill in all required fields correctly.');
+    return;
+  }
+
+  var btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  var newRow = {
+    full_name : document.getElementById('fname').value.trim(),
+    email     : document.getElementById('femail').value.trim(),
+    phone     : document.getElementById('fphone').value.trim(),
+    gender    : document.querySelector('input[name="gender"]:checked').value,
+    message   : document.getElementById('fmessage').value.trim()
+  };
+
+  // INSERT into Supabase table
+  var result = await db.from('messages').insert([newRow]);
+
+  if (result.error) {
+    alert('❌ Error saving to database:\n' + result.error.message);
+  } else {
+    alert('✅ Thank you, ' + newRow.full_name + '!\nYour message has been saved to the database.');
+
     document.getElementById('form-success').style.display = 'block';
+
+    // Clear form
+    ['fname', 'femail', 'fphone', 'fmessage'].forEach(function (id) {
+      document.getElementById(id).value = '';
+    });
+    document.querySelectorAll('input[name="gender"]').forEach(function (r) { r.checked = false; });
+    document.querySelectorAll('#contact .valid, #contact .invalid').forEach(function (el) { el.className = ''; });
+
     setTimeout(function () {
-      document.getElementById('fname').value = '';
-      document.getElementById('femail').value = '';
-      document.getElementById('fphone').value = '';
-      document.getElementById('fmessage').value = '';
-      document.querySelectorAll('input[name="gender"]').forEach(function (r) { r.checked = false; });
-      document.querySelectorAll('#contact .valid, #contact .invalid').forEach(function (el) { el.className = ''; });
       document.getElementById('form-success').style.display = 'none';
     }, 4000);
-  } else {
-    alert('⚠️ Please fill in all required fields correctly before submitting.');
+
+    loadMessages(); // refresh table
   }
+
+  btn.textContent = 'Send Message →';
+  btn.disabled = false;
 }
 
 
-/* PAYMENT SOUND */
+/* ================================================
+   LOAD MESSAGES — SELECT from Supabase
+================================================ */
+async function loadMessages() {
+  var container = document.getElementById('messages-table-body');
+  var countEl   = document.getElementById('messages-count');
+  if (!container) return;
+
+  container.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:1.5rem;">Loading from database…</td></tr>';
+
+  // SELECT all rows, newest first
+  var result = await db
+    .from('messages')
+    .select('id, full_name, email, phone, gender, created_at')
+    .order('created_at', { ascending: false });
+
+  if (result.error) {
+    container.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#cc2200;padding:1.5rem;">❌ ' + result.error.message + '</td></tr>';
+    return;
+  }
+
+  var rows = result.data;
+
+  if (!rows || rows.length === 0) {
+    container.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:1.5rem;">No messages yet. Be the first to send one!</td></tr>';
+    if (countEl) countEl.textContent = '0';
+    return;
+  }
+
+  if (countEl) countEl.textContent = rows.length;
+
+  container.innerHTML = rows.map(function (m) {
+    return '<tr>' +
+      '<td><strong>' + escHtml(m.id) + '</strong></td>' +
+      '<td>' + escHtml(m.full_name) + '</td>' +
+      '<td>' + escHtml(m.email) + '</td>' +
+      '<td>' + escHtml(m.phone) + '</td>' +
+      '<td>' + escHtml(m.gender) + '</td>' +
+      '<td>' + escHtml(m.created_at.replace('T', ' ').slice(0, 19)) + '</td>' +
+      '</tr>';
+  }).join('');
+}
+
+// Prevent XSS when displaying fetched data
+function escHtml(str) {
+  var d = document.createElement('div');
+  d.appendChild(document.createTextNode(String(str)));
+  return d.innerHTML;
+}
+
+
+/* ================================================
+   PAYMENT SOUND
+================================================ */
 function playPaymentSound() {
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   var osc1 = audioCtx.createOscillator(), gain1 = audioCtx.createGain();
